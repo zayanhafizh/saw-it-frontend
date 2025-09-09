@@ -1,83 +1,198 @@
 import { EstimateTable } from "@/components/estimate/estimate-table"
 import { EstimateFilters } from "@/components/estimate/estimate-filters"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calculator, TrendingUp, Calendar, MapPin } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Calculator, TrendingUp, Calendar, MapPin, Target, AlertCircle } from "lucide-react"
 
 export default function EstimatePage() {
   return (
-    <div className="p-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Production Estimates</h1>
-        <p className="text-gray-600">Detailed production forecasts and estimates by block, month, and year</p>
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 md:py-8 max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-6 md:mb-8 text-center md:text-left">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
+                Production Estimates
+              </h1>
+              <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
+                Detailed production forecasts and estimates by block, month, and year with AI-powered accuracy
+              </p>
+            </div>
+            <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
+              <Target className="w-4 h-4 mr-2" />
+              Real-time Data
+            </Badge>
+          </div>
+        </div>
+
+        {/* Summary Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-emerald-50 to-emerald-100 hover:scale-105">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm md:text-base">
+                <div className="p-2 bg-emerald-600 rounded-lg group-hover:scale-110 transition-transform">
+                  <Calculator className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                </div>
+                Total Estimates
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl md:text-2xl font-bold text-gray-900">156</div>
+              <p className="text-xs md:text-sm text-gray-600">Active forecasts</p>
+              <div className="mt-2 flex items-center gap-1 text-emerald-600">
+                <TrendingUp className="h-3 w-3" />
+                <span className="text-xs font-medium">+8 new this week</span>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-teal-50 to-teal-100 hover:scale-105">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-teal-700 flex items-center gap-2 text-sm md:text-base">
+                <div className="p-2 bg-teal-600 rounded-lg group-hover:scale-110 transition-transform">
+                  <TrendingUp className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                </div>
+                Avg. Accuracy
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl md:text-2xl font-bold text-gray-900">94.2%</div>
+              <p className="text-xs md:text-sm text-gray-600">Last 6 months</p>
+              <div className="mt-2">
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-teal-600 h-2 rounded-full" style={{width: '94.2%'}}></div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-cyan-50 to-cyan-100 hover:scale-105">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-cyan-700 flex items-center gap-2 text-sm md:text-base">
+                <div className="p-2 bg-cyan-600 rounded-lg group-hover:scale-110 transition-transform">
+                  <Calendar className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                </div>
+                Next Update
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl md:text-2xl font-bold text-gray-900">3 days</div>
+              <p className="text-xs md:text-sm text-gray-600">Scheduled refresh</p>
+              <div className="mt-2 flex items-center gap-1 text-cyan-600">
+                <AlertCircle className="h-3 w-3" />
+                <span className="text-xs font-medium">Auto-update enabled</span>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-indigo-50 to-indigo-100 hover:scale-105">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-indigo-700 flex items-center gap-2 text-sm md:text-base">
+                <div className="p-2 bg-indigo-600 rounded-lg group-hover:scale-110 transition-transform">
+                  <MapPin className="h-3 w-3 md:h-4 md:w-4 text-white" />
+                </div>
+                Coverage
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-xl md:text-2xl font-bold text-gray-900">24/24</div>
+              <p className="text-xs md:text-sm text-gray-600">Blocks covered</p>
+              <div className="mt-2">
+                <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">
+                  100% Complete
+                </Badge>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Filters and Table */}
+        <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
+          <CardHeader className="border-b border-gray-100">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <CardTitle className="text-lg md:text-xl text-emerald-700 flex items-center gap-2">
+                  <Calculator className="h-5 w-5" />
+                  Production Estimates
+                </CardTitle>
+                <CardDescription className="text-sm mt-1">
+                  Filter and search through production estimates by various criteria
+                </CardDescription>
+              </div>
+              <div className="flex items-center gap-2">
+                <Badge variant="outline" className="text-xs">
+                  Last updated: 2 hours ago
+                </Badge>
+                <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 text-xs">
+                  AI-Enhanced
+                </Badge>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="p-4 md:p-6 space-y-6">
+            <div className="bg-gray-50/50 rounded-lg p-4">
+              <EstimateFilters />
+            </div>
+            <div className="overflow-hidden rounded-lg border border-gray-200">
+              <EstimateTable />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Additional Information */}
+        <div className="mt-6 md:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+          <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-teal-50">
+            <CardHeader>
+              <CardTitle className="text-emerald-700 flex items-center gap-2">
+                <TrendingUp className="h-5 w-5" />
+                Forecast Insights
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Expected Growth:</span>
+                  <span className="text-sm font-bold text-emerald-600">+12.5%</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Peak Season:</span>
+                  <span className="text-sm font-bold text-gray-900">March - May</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Risk Level:</span>
+                  <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">Low</Badge>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border-0 shadow-lg bg-gradient-to-br from-cyan-50 to-indigo-50">
+            <CardHeader>
+              <CardTitle className="text-cyan-700 flex items-center gap-2">
+                <Target className="h-5 w-5" />
+                Performance Metrics
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Prediction Confidence:</span>
+                  <span className="text-sm font-bold text-cyan-600">95.2%</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Data Completeness:</span>
+                  <span className="text-sm font-bold text-gray-900">100%</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Model Version:</span>
+                  <Badge variant="outline" className="text-xs">v2.1.0</Badge>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
-
-      {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <Card className="border-emerald-200">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
-              <Calculator className="h-4 w-4" />
-              Total Estimates
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-gray-900">156</div>
-            <p className="text-xs text-gray-600">Active forecasts</p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-emerald-200">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
-              <TrendingUp className="h-4 w-4" />
-              Avg. Accuracy
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-gray-900">94.2%</div>
-            <p className="text-xs text-gray-600">Last 6 months</p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-emerald-200">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
-              <Calendar className="h-4 w-4" />
-              Next Update
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-gray-900">3 days</div>
-            <p className="text-xs text-gray-600">Scheduled refresh</p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-emerald-200">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
-              <MapPin className="h-4 w-4" />
-              Coverage
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-gray-900">24/24</div>
-            <p className="text-xs text-gray-600">Blocks covered</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Filters and Table */}
-      <Card className="border-emerald-200">
-        <CardHeader>
-          <CardTitle className="text-emerald-700">Production Estimates</CardTitle>
-          <CardDescription>Filter and search through production estimates by various criteria</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <EstimateFilters />
-          <EstimateTable />
-        </CardContent>
-      </Card>
     </div>
   )
 }

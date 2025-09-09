@@ -2,75 +2,153 @@ import { UploadArea } from "@/components/updating/upload-area"
 import { UploadHistory } from "@/components/updating/upload-history"
 import { UploadStats } from "@/components/updating/upload-stats"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { FileText, AlertCircle } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { FileText, AlertCircle, Upload, Shield, Clock } from "lucide-react"
 
 export default function UpdatingPage() {
   return (
-    <div className="p-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Data Management</h1>
-        <p className="text-gray-600">Upload and manage production data for accurate forecasting and analysis</p>
-      </div>
-
-      {/* Upload Stats */}
-      <UploadStats />
-
-      {/* Main Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-        {/* Upload Area - Takes 2 columns */}
-        <div className="lg:col-span-2">
-          <UploadArea />
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 md:py-8 max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-6 md:mb-8 text-center md:text-left">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
+                Data Management
+              </h1>
+              <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
+                Upload and manage production data for accurate forecasting and analysis with enterprise-grade security
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
+                <Upload className="w-4 h-4 mr-2" />
+                Real-time Processing
+              </Badge>
+              <Badge variant="outline" className="self-center md:self-start px-4 py-2">
+                <Shield className="w-4 h-4 mr-2" />
+                Secure Upload
+              </Badge>
+            </div>
+          </div>
         </div>
 
-        {/* Guidelines */}
-        <div>
-          <Card className="border-emerald-200">
-            <CardHeader>
-              <CardTitle className="text-emerald-700 flex items-center gap-2">
-                <FileText className="h-5 w-5" />
-                Upload Guidelines
-              </CardTitle>
-              <CardDescription>Important information for data uploads</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Supported Formats</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• CSV files (.csv)</li>
-                  <li>• Excel files (.xlsx, .xls)</li>
-                  <li>• JSON files (.json)</li>
-                </ul>
-              </div>
+        {/* Upload Stats */}
+        <div className="mb-6 md:mb-8">
+          <UploadStats />
+        </div>
 
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2">Required Columns</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Block ID</li>
-                  <li>• Date</li>
-                  <li>• Production (tons)</li>
-                  <li>• Area (hectares)</li>
-                </ul>
-              </div>
+        {/* Main Content */}
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+          {/* Upload Area - Takes 2 columns on xl screens */}
+          <div className="xl:col-span-2">
+            <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
+              <UploadArea />
+            </Card>
+          </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                <div className="flex gap-2">
-                  <AlertCircle className="h-4 w-4 text-yellow-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-medium text-yellow-800">Important</p>
-                    <p className="text-xs text-yellow-700 mt-1">
-                      Ensure data quality before upload. Invalid data may affect prediction accuracy.
-                    </p>
+          {/* Guidelines */}
+          <div className="xl:col-span-1">
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-emerald-50 to-teal-50 h-full">
+              <CardHeader className="border-b border-emerald-100">
+                <CardTitle className="text-emerald-700 flex items-center gap-2">
+                  <div className="p-2 bg-emerald-600 rounded-lg">
+                    <FileText className="h-4 w-4 text-white" />
+                  </div>
+                  Upload Guidelines
+                </CardTitle>
+                <CardDescription>Important information for data uploads</CardDescription>
+              </CardHeader>
+              <CardContent className="p-4 md:p-6 space-y-6">
+                <div className="space-y-4">
+                  <div className="bg-white/70 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                      <FileText className="h-4 w-4 text-emerald-600" />
+                      Supported Formats
+                    </h4>
+                    <div className="grid grid-cols-1 gap-2">
+                      <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
+                        <span className="text-sm font-medium text-gray-700">CSV files</span>
+                        <Badge variant="outline" className="text-xs">.csv</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
+                        <span className="text-sm font-medium text-gray-700">Excel files</span>
+                        <Badge variant="outline" className="text-xs">.xlsx, .xls</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
+                        <span className="text-sm font-medium text-gray-700">JSON files</span>
+                        <Badge variant="outline" className="text-xs">.json</Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/70 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-teal-600" />
+                      Required Columns
+                    </h4>
+                    <div className="space-y-2">
+                      {['Block ID', 'Date', 'Production (tons)', 'Area (hectares)'].map((column, index) => (
+                        <div key={index} className="flex items-center gap-2 p-2 bg-teal-50 rounded-md">
+                          <div className="w-2 h-2 bg-teal-600 rounded-full"></div>
+                          <span className="text-sm font-medium text-gray-700">{column}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-4">
+                    <div className="flex gap-3">
+                      <AlertCircle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-yellow-800 mb-1">Data Quality Notice</p>
+                        <p className="text-xs text-yellow-700 leading-relaxed">
+                          Ensure data quality and accuracy before upload. Invalid or inconsistent data may significantly affect AI prediction accuracy and system performance.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-4">
+                    <div className="flex gap-3">
+                      <Shield className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-blue-800 mb-1">Security & Privacy</p>
+                        <p className="text-xs text-blue-700 leading-relaxed">
+                          All uploads are encrypted and processed securely. Your data is protected with enterprise-grade security measures.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
 
-      {/* Upload History */}
-      <UploadHistory />
+        {/* Upload History */}
+        <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
+          <CardHeader className="border-b border-gray-100">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <CardTitle className="text-lg md:text-xl text-emerald-700 flex items-center gap-2">
+                  <Clock className="h-5 w-5" />
+                  Upload History
+                </CardTitle>
+                <CardDescription className="text-sm mt-1">
+                  Track and manage your previous data uploads
+                </CardDescription>
+              </div>
+              <Badge variant="outline" className="self-center md:self-start text-xs">
+                Last updated: 5 minutes ago
+              </Badge>
+            </div>
+          </CardHeader>
+          <CardContent className="p-0">
+            <UploadHistory />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }
