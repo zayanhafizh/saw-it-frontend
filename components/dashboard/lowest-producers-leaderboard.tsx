@@ -13,9 +13,9 @@ export function LowestProducersLeaderboard() {
       <CardHeader>
         <CardTitle className="text-red-700 flex items-center gap-2">
           <TrendingDown className="h-5 w-5" />
-          Needs Attention
+          Perlu Perhatian
         </CardTitle>
-        <CardDescription>Areas requiring immediate focus</CardDescription>
+        <CardDescription>Area yang memerlukan fokus segera</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -30,12 +30,12 @@ export function LowestProducersLeaderboard() {
                 </div>
                 <div>
                   <p className="font-medium text-gray-900">{producer.area}</p>
-                  <p className="text-sm text-gray-600">{producer.production} tons</p>
+                  <p className="text-sm text-gray-600">{producer.production} ton</p>
                 </div>
               </div>
               <div className="text-right">
                 <p className="text-sm font-medium text-red-700">{producer.percentage}%</p>
-                <p className="text-xs text-gray-500">of target</p>
+                <p className="text-xs text-gray-500">dari target</p>
               </div>
             </div>
           ))}

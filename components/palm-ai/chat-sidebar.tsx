@@ -6,30 +6,30 @@ import { Bot, Plus, MessageCircle, Lightbulb, BarChart3, Leaf } from "lucide-rea
 
 const suggestedQuestions = [
   {
-    category: "Production",
+    category: "Produksi",
     icon: BarChart3,
     questions: [
-      "What's the optimal harvest time for Block A-12?",
-      "How can I improve yield in low-performing areas?",
-      "What factors affect palm oil production quality?",
+      "Kapan waktu panen optimal untuk Blok A-12?",
+      "Bagaimana cara meningkatkan hasil di area berproduksi rendah?",
+      "Faktor apa yang mempengaruhi kualitas produksi minyak kelapa sawit?",
     ],
   },
   {
-    category: "Plant Health",
+    category: "Kesehatan Tanaman",
     icon: Leaf,
     questions: [
-      "How to identify early signs of palm diseases?",
-      "Best practices for palm tree maintenance?",
-      "Optimal fertilizer schedule for mature palms?",
+      "Bagaimana mengidentifikasi tanda awal penyakit kelapa sawit?",
+      "Praktik terbaik untuk perawatan pohon kelapa sawit?",
+      "Jadwal pupuk optimal untuk kelapa sawit dewasa?",
     ],
   },
   {
-    category: "Analytics",
+    category: "Analitik",
     icon: Lightbulb,
     questions: [
-      "Analyze my production trends for this year",
-      "Compare performance across different blocks",
-      "Predict next month's production estimates",
+      "Analisis tren produksi saya tahun ini",
+      "Bandingkan kinerja antar blok yang berbeda",
+      "Prediksi estimasi produksi bulan depan",
     ],
   },
 ]
@@ -45,19 +45,19 @@ export function ChatSidebar() {
           </div>
           <div>
             <h2 className="text-lg font-bold text-emerald-900">Palm-AI</h2>
-            <p className="text-sm text-emerald-600">Your AI Assistant</p>
+            <p className="text-sm text-emerald-600">Asisten AI Anda</p>
           </div>
         </div>
 
         <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
           <Plus className="h-4 w-4 mr-2" />
-          New Conversation
+          Percakapan Baru
         </Button>
       </div>
 
       {/* Suggested Questions */}
       <div className="space-y-4">
-        <h3 className="text-sm font-semibold text-emerald-800 mb-3">Suggested Questions</h3>
+        <h3 className="text-sm font-semibold text-emerald-800 mb-3">Pertanyaan yang Disarankan</h3>
 
         {suggestedQuestions.map((category) => {
           const IconComponent = category.icon
@@ -89,9 +89,9 @@ export function ChatSidebar() {
 
       {/* Recent Conversations */}
       <div className="mt-6">
-        <h3 className="text-sm font-semibold text-emerald-800 mb-3">Recent Conversations</h3>
+        <h3 className="text-sm font-semibold text-emerald-800 mb-3">Percakapan Terakhir</h3>
         <div className="space-y-2">
-          {["Production optimization tips", "Disease prevention strategies", "Harvest scheduling advice"].map(
+          {["Tips optimisasi produksi", "Strategi pencegahan penyakit", "Saran penjadwalan panen"].map(
             (conversation, index) => (
               <Button
                 key={index}

@@ -46,7 +46,7 @@ export function ThemeToggle() {
           onClick={() => setTheme("light")}
           className="hover:bg-emerald-50 dark:hover:bg-emerald-900/20 cursor-pointer"
         >
-          <Sun className="h-4 w-4 mr-2" />
+          <Sun className="h-4 w-4 mr-2 text-black" />
           Light
         </DropdownMenuItem>
         <DropdownMenuItem 

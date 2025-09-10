@@ -13,9 +13,9 @@ export function TopProducersLeaderboard() {
       <CardHeader>
         <CardTitle className="text-emerald-700 flex items-center gap-2">
           <Trophy className="h-5 w-5" />
-          Top Producers
+          Produser Teratas
         </CardTitle>
-        <CardDescription>Highest production areas this month</CardDescription>
+        <CardDescription>Area produksi tertinggi bulan ini</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -32,12 +32,12 @@ export function TopProducersLeaderboard() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">{producer.area}</p>
-                    <p className="text-sm text-gray-600">{producer.production} tons</p>
+                    <p className="text-sm text-gray-600">{producer.production} ton</p>
                   </div>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-medium text-emerald-700">{producer.percentage}%</p>
-                  <p className="text-xs text-gray-500">of target</p>
+                  <p className="text-xs text-gray-500">dari target</p>
                 </div>
               </div>
             )

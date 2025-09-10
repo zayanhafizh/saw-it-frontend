@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, Calculator, Bot, Upload, Leaf, Info, Menu, X } from "lucide-react"
+import { LayoutDashboard, Calculator, Bot, Upload, Leaf, Info, Menu, X, User } from "lucide-react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -11,11 +11,11 @@ import { ThemeToggle } from "@/components/theme-toggle"
 const navigation = [
   {
     name: "Dashboard",
-    href: "/",
+    href: "/dashboard",
     icon: LayoutDashboard,
   },
   {
-    name: "Estimate",
+    name: "Estimasi",
     href: "/estimate",
     icon: Calculator,
   },
@@ -25,12 +25,17 @@ const navigation = [
     icon: Bot,
   },
   {
-    name: "Updating",
+    name: "Perbarui Data",
     href: "/updating",
     icon: Upload,
   },
   {
-    name: "About",
+    name: "Profile",
+    href: "/profile",
+    icon: User,
+  },
+  {
+    name: "Tentang",
     href: "/about",
     icon: Info,
   },
@@ -70,7 +75,7 @@ export function Sidebar() {
           variant="outline"
           size="icon"
           onClick={toggleMobileSidebar}
-          className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/20"
+          className="bg-emerald-600/90 dark:bg-emerald-700/90 backdrop-blur-sm border-emerald-500 dark:border-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-700 text-white"
         >
           <Menu className="h-4 w-4" />
         </Button>
@@ -110,14 +115,18 @@ export function Sidebar() {
 
         {/* Logo and Brand */}
         <div className="flex items-center gap-3 px-6 py-6 border-b border-emerald-700/50">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg">
-            <Leaf className="h-7 w-7 text-white" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600/20 shadow-lg overflow-hidden">
+            <img 
+              src="/saw-it-logo.png" 
+              alt="Saw-It Logo" 
+              className="h-10 w-10 object-contain"
+            />
           </div>
           <div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-emerald-100 bg-clip-text text-transparent">
               Saw-It
             </h1>
-            <p className="text-sm text-emerald-200 font-medium">Palm Management</p>
+            <p className="text-sm text-emerald-200 font-medium">Manajemen Sawit</p>
           </div>
         </div>
 
@@ -160,7 +169,7 @@ export function Sidebar() {
               <span className="text-sm font-bold text-white">U</span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">User</p>
+              <p className="text-sm font-medium text-white truncate">Pengguna</p>
               <p className="text-xs text-emerald-200 truncate">Administrator</p>
             </div>
           </div>
@@ -169,7 +178,7 @@ export function Sidebar() {
         {/* Footer */}
         <div className="border-t border-emerald-700/50 dark:border-gray-700/50 px-6 py-4">
           <div className="flex items-center justify-between mb-2">
-            <p className="text-xs text-emerald-300 dark:text-gray-300">© 2024 Saw-It Platform</p>
+            <p className="text-xs text-emerald-300 dark:text-gray-300">© 2024 Platform Saw-It</p>
             {!isMobile && <ThemeToggle />}
           </div>
           <p className="text-xs text-emerald-400 dark:text-gray-400">v2.0.0</p>

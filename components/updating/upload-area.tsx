@@ -126,54 +126,54 @@ export function UploadArea() {
       <CardHeader>
         <CardTitle className="text-emerald-700 flex items-center gap-2">
           <Upload className="h-5 w-5" />
-          Upload Production Data
+          Unggah Data Produksi
         </CardTitle>
-        <CardDescription>Upload CSV, Excel, or JSON files containing production data</CardDescription>
+        <CardDescription>Unggah file CSV, Excel, atau JSON yang berisi data produksi</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Upload Metadata */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <Label htmlFor="dataType">Data Type</Label>
+            <Label htmlFor="dataType">Jenis Data</Label>
             <Select
               value={uploadMetadata.dataType}
               onValueChange={(value) => setUploadMetadata((prev) => ({ ...prev, dataType: value }))}
             >
               <SelectTrigger className="border-emerald-200">
-                <SelectValue placeholder="Select data type" />
+                <SelectValue placeholder="Pilih jenis data" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="production">Production Data</SelectItem>
-                <SelectItem value="harvest">Harvest Records</SelectItem>
-                <SelectItem value="maintenance">Maintenance Logs</SelectItem>
-                <SelectItem value="weather">Weather Data</SelectItem>
+                <SelectItem value="production">Data Produksi</SelectItem>
+                <SelectItem value="harvest">Catatan Panen</SelectItem>
+                <SelectItem value="maintenance">Log Pemeliharaan</SelectItem>
+                <SelectItem value="weather">Data Cuaca</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <Label htmlFor="period">Period</Label>
+            <Label htmlFor="period">Periode</Label>
             <Select
               value={uploadMetadata.period}
               onValueChange={(value) => setUploadMetadata((prev) => ({ ...prev, period: value }))}
             >
               <SelectTrigger className="border-emerald-200">
-                <SelectValue placeholder="Select period" />
+                <SelectValue placeholder="Pilih periode" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="daily">Daily</SelectItem>
-                <SelectItem value="weekly">Weekly</SelectItem>
-                <SelectItem value="monthly">Monthly</SelectItem>
-                <SelectItem value="quarterly">Quarterly</SelectItem>
+                <SelectItem value="daily">Harian</SelectItem>
+                <SelectItem value="weekly">Mingguan</SelectItem>
+                <SelectItem value="monthly">Bulanan</SelectItem>
+                <SelectItem value="quarterly">Triwulanan</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <Label htmlFor="description">Description</Label>
+            <Label htmlFor="description">Deskripsi</Label>
             <Input
               id="description"
-              placeholder="Brief description"
+              placeholder="Deskripsi singkat"
               value={uploadMetadata.description}
               onChange={(e) => setUploadMetadata((prev) => ({ ...prev, description: e.target.value }))}
               className="border-emerald-200"
@@ -193,8 +193,8 @@ export function UploadArea() {
           onDrop={handleDrop}
         >
           <Upload className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 mb-2">Drop files here or click to browse</h3>
-          <p className="text-gray-600 mb-4">Supports CSV, Excel (.xlsx, .xls), and JSON files up to 10MB</p>
+          <h3 className="text-lg font-medium text-gray-900 mb-2">Seret file ke sini atau klik untuk menjelajah</h3>
+          <p className="text-gray-600 mb-4">Mendukung file CSV, Excel (.xlsx, .xls), dan JSON hingga 10MB</p>
           <input
             type="file"
             multiple
@@ -209,7 +209,7 @@ export function UploadArea() {
             className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 bg-transparent"
           >
             <label htmlFor="file-upload" className="cursor-pointer">
-              Select Files
+              Pilih File
             </label>
           </Button>
         </div>
@@ -218,13 +218,13 @@ export function UploadArea() {
         {files.length > 0 && (
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h4 className="font-medium text-gray-900">Selected Files ({files.length})</h4>
+              <h4 className="font-medium text-gray-900">File Terpilih ({files.length})</h4>
               <Button
                 onClick={uploadAllFiles}
                 disabled={files.every((f) => f.status !== "pending")}
                 className="bg-emerald-600 hover:bg-emerald-700"
               >
-                Upload All Files
+                Unggah Semua File
               </Button>
             </div>
 
@@ -245,7 +245,7 @@ export function UploadArea() {
                         onClick={() => simulateUpload(uploadFile.id)}
                         className="bg-emerald-600 hover:bg-emerald-700"
                       >
-                        Upload
+                        Unggah
                       </Button>
                     )}
                     <Button

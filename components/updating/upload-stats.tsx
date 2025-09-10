@@ -8,12 +8,12 @@ export function UploadStats() {
         <CardHeader className="pb-3">
           <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
             <Upload className="h-4 w-4" />
-            Total Uploads
+            Total Unggahan
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-gray-900">247</div>
-          <p className="text-xs text-gray-600">All time</p>
+          <p className="text-xs text-gray-600">Sepanjang waktu</p>
         </CardContent>
       </Card>
 
@@ -21,12 +21,12 @@ export function UploadStats() {
         <CardHeader className="pb-3">
           <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
             <Database className="h-4 w-4" />
-            Data Points
+            Titik Data
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-gray-900">15.2K</div>
-          <p className="text-xs text-gray-600">Records processed</p>
+          <p className="text-xs text-gray-600">Catatan diproses</p>
         </CardContent>
       </Card>
 
@@ -34,12 +34,12 @@ export function UploadStats() {
         <CardHeader className="pb-3">
           <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
             <CheckCircle className="h-4 w-4" />
-            Success Rate
+            Tingkat Keberhasilan
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold text-gray-900">98.5%</div>
-          <p className="text-xs text-gray-600">Upload success</p>
+          <p className="text-xs text-gray-600">Keberhasilan unggah</p>
         </CardContent>
       </Card>
 
@@ -47,12 +47,12 @@ export function UploadStats() {
         <CardHeader className="pb-3">
           <CardTitle className="text-emerald-700 flex items-center gap-2 text-sm">
             <Clock className="h-4 w-4" />
-            Last Upload
+            Unggahan Terakhir
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold text-gray-900">2h ago</div>
-          <p className="text-xs text-gray-600">Block A-12 data</p>
+          <div className="text-2xl font-bold text-gray-900">2 jam lalu</div>
+          <p className="text-xs text-gray-600">Data Blok A-12</p>
         </CardContent>
       </Card>
     </div>

@@ -1,263 +1,337 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, TrendingUp, MapPin, Brain, Zap, Shield, Clock, Users } from "lucide-react"
+import { ArrowRight, TrendingUp, MapPin, Brain, Zap, Shield, Clock, Users, Star, Target, Leaf, Menu, X } from "lucide-react"
 import Link from "next/link"
-import { ProductionChart } from "@/components/dashboard/production-chart"
-import { TopProducersLeaderboard } from "@/components/dashboard/top-producers-leaderboard"
-import { LowestProducersLeaderboard } from "@/components/dashboard/lowest-producers-leaderboard"
-import { PlantationMap } from "@/components/dashboard/plantation-map"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { useState } from "react"
+import { cn } from "@/lib/utils"
+
+const navigation = [
+  { name: 'Beranda', href: '/' },
+  { name: 'Tentang', href: '/about' },
+  { name: 'Fitur', href: '#features' },
+  { name: 'Kontak', href: '#contact' },
+]
 
 export default function HomePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 dark:from-emerald-800 dark:via-teal-800 dark:to-cyan-800 text-white transition-colors duration-300">
-        <div className="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
-        <div className="relative px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center">
-              <Badge className="mb-4 bg-white/20 text-white border-white/30 hover:bg-white/30">
-                <Zap className="w-3 h-3 mr-1" />
-                AI-Powered Analytics
-              </Badge>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                Welcome to <span className="bg-gradient-to-r from-emerald-200 to-cyan-200 bg-clip-text text-transparent">Saw-It</span>
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-emerald-100 mb-6 max-w-3xl mx-auto leading-relaxed">
-                Comprehensive palm oil plantation management with cutting-edge AI insights and real-time monitoring
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-emerald-600 hover:bg-emerald-50 dark:bg-gray-800 dark:text-emerald-400 dark:hover:bg-gray-700 font-semibold px-8 transition-colors duration-200">
-                  Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 dark:border-gray-300 dark:text-gray-300 dark:hover:bg-white/5 font-semibold px-8 transition-colors duration-200">
-                  Learn More
-                </Button>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Navigation Header */}
+      <header className="absolute inset-x-0 top-0 z-50">
+        <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div className="flex lg:flex-1">
+            <Link href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">Saw-It</span>
+              <div className="flex items-center gap-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 shadow-lg overflow-hidden">
+                  <img 
+                    src="/saw-it-logo.png" 
+                    alt="Saw-It Logo" 
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                  Saw-It
+                </span>
+              </div>
+            </Link>
+          </div>
+          <div className="flex lg:hidden gap-2">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              onClick={() => setMobileMenuOpen(true)}
+              className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-300"
+            >
+              <span className="sr-only">Open main menu</span>
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            </Button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
+            <ThemeToggle />
+            <Link href="/dashboard">
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                Masuk Dashboard
+              </Button>
+            </Link>
+          </div>
+        </nav>
+
+        {/* Mobile menu */}
+        <div className={cn(
+          "lg:hidden",
+          mobileMenuOpen ? "fixed inset-0 z-50" : "hidden"
+        )}>
+          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="-m-1.5 p-1.5">
+                <span className="sr-only">Saw-It</span>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 overflow-hidden">
+                    <img 
+                      src="/saw-it-logo.png" 
+                      alt="Saw-It Logo" 
+                      className="h-6 w-6 object-contain"
+                    />
+                  </div>
+                  <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                    Saw-It
+                  </span>
+                </div>
+              </Link>
+              <Button
+                variant="ghost"
+                onClick={() => setMobileMenuOpen(false)}
+                className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300"
+              >
+                <span className="sr-only">Close menu</span>
+                <X className="h-6 w-6" aria-hidden="true" />
+              </Button>
+            </div>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-500/25">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                  >
+                    Masuk Dashboard
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-16 -right-16 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
-          <div className="absolute top-1/3 -left-8 w-24 h-24 bg-emerald-300/20 rounded-full blur-lg"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-cyan-300/20 rounded-full blur-lg"></div>
+      </header>
+
+      {/* Hero Section */}
+      <div className="relative isolate px-6 pt-14 lg:px-8">
+        <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-400 to-cyan-600 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
         </div>
-      </div>
-
-      <div className="px-4 sm:px-6 lg:px-8 py-8 md:py-12 max-w-7xl mx-auto">
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 hover:scale-105">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-emerald-700 dark:text-emerald-300 flex items-center gap-2 text-sm md:text-base">
-                <div className="p-2 bg-emerald-600 dark:bg-emerald-500 rounded-lg">
-                  <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                </div>
-                Production Overview
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">2,450</div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">tons this month</p>
-              <div className="mt-2 flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                <TrendingUp className="h-3 w-3" />
-                <span className="text-xs font-medium">+12.5% from last month</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 hover:scale-105">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-teal-700 dark:text-teal-300 flex items-center gap-2 text-sm md:text-base">
-                <div className="p-2 bg-teal-600 dark:bg-teal-500 rounded-lg">
-                  <MapPin className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                </div>
-                Active Areas
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">24</div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">blocks monitored</p>
-              <div className="mt-2 flex items-center gap-1 text-teal-600 dark:text-teal-400">
-                <Shield className="h-3 w-3" />
-                <span className="text-xs font-medium">100% coverage</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20 hover:scale-105">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-cyan-700 dark:text-cyan-300 flex items-center gap-2 text-sm md:text-base">
-                <div className="p-2 bg-cyan-600 dark:bg-cyan-500 rounded-lg">
-                  <Brain className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                </div>
-                AI Predictions
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">95.2%</div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">accuracy rate</p>
-              <div className="mt-2 flex items-center gap-1 text-cyan-600 dark:text-cyan-400">
-                <Zap className="h-3 w-3" />
-                <span className="text-xs font-medium">Real-time processing</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 hover:scale-105">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-indigo-700 dark:text-indigo-300 flex items-center gap-2 text-sm md:text-base">
-                <div className="p-2 bg-indigo-600 dark:bg-indigo-500 rounded-lg">
-                  <Users className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                </div>
-                Team Performance
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">98.5%</div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">efficiency score</p>
-              <div className="mt-2 flex items-center gap-1 text-indigo-600 dark:text-indigo-400">
-                <Clock className="h-3 w-3" />
-                <span className="text-xs font-medium">Updated 5 min ago</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
-          {/* Production Chart - Takes 2 columns on xl screens */}
-          <div className="xl:col-span-2">
-            <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
-              <ProductionChart />
-            </Card>
+        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-gray-100/10 hover:ring-gray-900/20 dark:hover:ring-gray-100/20">
+              Platform AI terdepan untuk kelapa sawit.{' '}
+              <Link href="/about" className="font-semibold text-emerald-600 dark:text-emerald-400">
+                <span className="absolute inset-0" aria-hidden="true" />
+                Pelajari lebih lanjut <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
           </div>
-
-          {/* Top Producers Leaderboard */}
-          <div className="xl:col-span-1">
-            <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-white to-emerald-50 dark:from-gray-800 dark:to-emerald-900/20">
-              <TopProducersLeaderboard />
-            </Card>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
-          {/* Plantation Map - Takes 2 columns on xl screens */}
-          <div className="xl:col-span-2">
-            <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-white to-teal-50 dark:from-gray-800 dark:to-teal-900/20">
-              <PlantationMap />
-            </Card>
-          </div>
-
-          {/* Lowest Producers Leaderboard */}
-          <div className="xl:col-span-1">
-            <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-white to-orange-50 dark:from-gray-800 dark:to-orange-900/20">
-              <LowestProducersLeaderboard />
-            </Card>
-          </div>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="space-y-6">
           <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Quick Actions</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Access key features and tools to manage your plantation efficiently</p>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
+              Revolusi Manajemen{' '}
+              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                Kelapa Sawit
+              </span>
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+              Tingkatkan produktivitas perkebunan dengan teknologi AI canggih, analitik real-time, dan prediksi yang akurat untuk hasil panen optimal.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link href="/dashboard">
+                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3">
+                  Mulai Sekarang
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400">
+                Demo Langsung <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <Link href="/estimate" className="group">
-              <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 hover:scale-105 group-hover:shadow-emerald-200/50 dark:group-hover:shadow-emerald-800/50">
-                <CardHeader>
-                  <CardTitle className="text-lg text-emerald-700 dark:text-emerald-300 group-hover:text-emerald-800 dark:group-hover:text-emerald-200 transition-colors">
-                    Production Estimates
-                  </CardTitle>
-                  <CardDescription className="text-sm dark:text-gray-400">
-                    View and analyze production forecasts by block and time period
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    variant="outline"
-                    className="w-full border-emerald-200 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 dark:hover:bg-emerald-600 dark:hover:text-white dark:hover:border-emerald-600 transition-all duration-200"
-                  >
-                    View Estimates <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </Link>
+        </div>
+        <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+          <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-emerald-400 to-cyan-600 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" />
+        </div>
+      </div>
 
-            <Link href="/palm-ai" className="group">
-              <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20 hover:scale-105 group-hover:shadow-cyan-200/50 dark:group-hover:shadow-cyan-800/50">
-                <CardHeader>
-                  <CardTitle className="text-lg text-cyan-700 dark:text-cyan-300 group-hover:text-cyan-800 dark:group-hover:text-cyan-200 transition-colors">
-                    Palm-AI Assistant
-                  </CardTitle>
-                  <CardDescription className="text-sm dark:text-gray-400">
-                    Get AI-powered insights and recommendations for your plantation
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    variant="outline"
-                    className="w-full border-cyan-200 dark:border-cyan-700 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-600 hover:text-white hover:border-cyan-600 dark:hover:bg-cyan-600 dark:hover:text-white dark:hover:border-cyan-600 transition-all duration-200"
-                  >
-                    Chat with AI <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </Link>
+      {/* Features Section */}
+      <div id="features" className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:text-center">
+            <h2 className="text-base font-semibold leading-7 text-emerald-600 dark:text-emerald-400">
+              Fitur Unggulan
+            </h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+              Semua yang Anda butuhkan untuk mengelola perkebunan
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+              Platform lengkap dengan teknologi AI terdepan untuk optimasi perkebunan kelapa sawit Anda.
+            </p>
+          </div>
+          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+              <div className="flex flex-col">
+                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-emerald-600">
+                    <TrendingUp className="h-6 w-6 text-white" />
+                  </div>
+                  Estimasi Produksi
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-400">
+                  <p className="flex-auto">
+                    Prediksi akurat hasil panen berdasarkan data historis, kondisi cuaca, dan analisis NDVI dengan AI.
+                  </p>
+                  <p className="mt-6">
+                    <Link href="/estimate" className="text-sm font-semibold leading-6 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300">
+                      Lihat estimasi <span aria-hidden="true">→</span>
+                    </Link>
+                  </p>
+                </dd>
+              </div>
 
-            <Link href="/updating" className="group">
-              <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 hover:scale-105 group-hover:shadow-teal-200/50 dark:group-hover:shadow-teal-800/50">
-                <CardHeader>
-                  <CardTitle className="text-lg text-teal-700 dark:text-teal-300 group-hover:text-teal-800 dark:group-hover:text-teal-200 transition-colors">
-                    Data Updates
-                  </CardTitle>
-                  <CardDescription className="text-sm dark:text-gray-400">
-                    Upload and manage production data for accurate forecasting
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    variant="outline"
-                    className="w-full border-teal-200 dark:border-teal-700 text-teal-700 dark:text-teal-300 hover:bg-teal-600 hover:text-white hover:border-teal-600 dark:hover:bg-teal-600 dark:hover:text-white dark:hover:border-teal-600 transition-all duration-200"
-                  >
-                    Upload Data <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </Link>
+              <div className="flex flex-col">
+                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-cyan-600">
+                    <Brain className="h-6 w-6 text-white" />
+                  </div>
+                  Asisten Palm-AI
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-400">
+                  <p className="flex-auto">
+                    Konsultasi dengan AI untuk mendapatkan rekomendasi pemeliharaan, pupuk, dan strategi peningkatan hasil.
+                  </p>
+                  <p className="mt-6">
+                    <Link href="/palm-ai" className="text-sm font-semibold leading-6 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300">
+                      Chat dengan AI <span aria-hidden="true">→</span>
+                    </Link>
+                  </p>
+                </dd>
+              </div>
 
-            <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 hover:scale-105">
-              <CardHeader>
-                <CardTitle className="text-lg text-indigo-700 dark:text-indigo-300">Quick Stats</CardTitle>
-                <CardDescription className="text-sm dark:text-gray-400">Real-time plantation performance metrics</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                    <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Yield Rate:</span>
-                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">18.5 tons/ha</span>
+              <div className="flex flex-col">
+                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100">
+                  <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-teal-600">
+                    <MapPin className="h-6 w-6 text-white" />
                   </div>
-                  <div className="flex justify-between items-center p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                    <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Efficiency:</span>
-                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">92%</span>
-                  </div>
-                  <div className="flex justify-between items-center p-2 bg-white/50 dark:bg-gray-800/50 rounded-lg">
-                    <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Status:</span>
-                    <Badge className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 border-green-200 dark:border-green-700">
-                      Optimal
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                  Pemetaan Spasial
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-400">
+                  <p className="flex-auto">
+                    Visualisasi area produktif dan monitoring kesehatan tanaman dengan peta interaktif real-time.
+                  </p>
+                  <p className="mt-6">
+                    <Link href="/dashboard" className="text-sm font-semibold leading-6 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300">
+                      Lihat peta <span aria-hidden="true">→</span>
+                    </Link>
+                  </p>
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>
+
+      {/* Stats Section */}
+      <div className="bg-emerald-50 dark:bg-gray-800 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:max-w-none">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+                Dipercaya oleh ribuan petani
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-400">
+                Platform yang telah membantu meningkatkan produktivitas perkebunan di seluruh Indonesia
+              </p>
+            </div>
+            <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+              <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
+                <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Hektar Termonitor</dt>
+                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">50,000+</dd>
+              </div>
+              <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
+                <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Peningkatan Hasil</dt>
+                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">25%</dd>
+              </div>
+              <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
+                <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Pengguna Aktif</dt>
+                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">5,000+</dd>
+              </div>
+              <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
+                <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Akurasi Prediksi</dt>
+                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">94%</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-emerald-600 dark:bg-emerald-900">
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Siap meningkatkan produktivitas perkebunan?
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-emerald-100">
+              Bergabunglah dengan ribuan petani yang telah merasakan manfaat teknologi AI untuk kelapa sawit.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link href="/dashboard">
+                <Button size="lg" className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-3">
+                  Mulai Gratis
+                </Button>
+              </Link>
+              <Link href="/about" className="text-sm font-semibold leading-6 text-white hover:text-emerald-100">
+                Pelajari lebih lanjut <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer id="contact" className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+          <div className="flex justify-center space-x-6 md:order-2">
+            <Link href="/about" className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">
+              Tentang
+            </Link>
+            <Link href="/dashboard" className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">
+              Dashboard
+            </Link>
+            <Link href="#contact" className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">
+              Kontak
+            </Link>
+          </div>
+          <div className="mt-8 md:order-1 md:mt-0">
+            <p className="text-center text-xs leading-5 text-gray-500 dark:text-gray-400">
+              &copy; 2024 Saw-It Platform. Semua hak cipta dilindungi.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

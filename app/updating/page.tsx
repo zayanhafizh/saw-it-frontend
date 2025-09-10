@@ -14,20 +14,20 @@ export default function UpdatingPage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
-                Data Management
+                Manajemen Data
               </h1>
               <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
-                Upload and manage production data for accurate forecasting and analysis with enterprise-grade security
+                Unggah dan kelola data produksi untuk perkiraan dan analisis yang akurat dengan keamanan tingkat enterprise
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
               <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
                 <Upload className="w-4 h-4 mr-2" />
-                Real-time Processing
+                Pemrosesan Real-time
               </Badge>
               <Badge variant="outline" className="self-center md:self-start px-4 py-2">
                 <Shield className="w-4 h-4 mr-2" />
-                Secure Upload
+                Unggah Aman
               </Badge>
             </div>
           </div>
@@ -55,28 +55,28 @@ export default function UpdatingPage() {
                   <div className="p-2 bg-emerald-600 rounded-lg">
                     <FileText className="h-4 w-4 text-white" />
                   </div>
-                  Upload Guidelines
+                  Panduan Unggah
                 </CardTitle>
-                <CardDescription>Important information for data uploads</CardDescription>
+                <CardDescription>Informasi penting untuk pengunggahan data</CardDescription>
               </CardHeader>
               <CardContent className="p-4 md:p-6 space-y-6">
                 <div className="space-y-4">
                   <div className="bg-white/70 rounded-lg p-4">
                     <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                       <FileText className="h-4 w-4 text-emerald-600" />
-                      Supported Formats
+                      Format yang Didukung
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
                       <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
-                        <span className="text-sm font-medium text-gray-700">CSV files</span>
+                        <span className="text-sm font-medium text-gray-700">File CSV</span>
                         <Badge variant="outline" className="text-xs">.csv</Badge>
                       </div>
                       <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
-                        <span className="text-sm font-medium text-gray-700">Excel files</span>
+                        <span className="text-sm font-medium text-gray-700">File Excel</span>
                         <Badge variant="outline" className="text-xs">.xlsx, .xls</Badge>
                       </div>
                       <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
-                        <span className="text-sm font-medium text-gray-700">JSON files</span>
+                        <span className="text-sm font-medium text-gray-700">File JSON</span>
                         <Badge variant="outline" className="text-xs">.json</Badge>
                       </div>
                     </div>
@@ -85,10 +85,10 @@ export default function UpdatingPage() {
                   <div className="bg-white/70 rounded-lg p-4">
                     <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                       <Clock className="h-4 w-4 text-teal-600" />
-                      Required Columns
+                      Kolom yang Diperlukan
                     </h4>
                     <div className="space-y-2">
-                      {['Block ID', 'Date', 'Production (tons)', 'Area (hectares)'].map((column, index) => (
+                      {['ID Blok', 'Tanggal', 'Produksi (ton)', 'Area (hektar)'].map((column, index) => (
                         <div key={index} className="flex items-center gap-2 p-2 bg-teal-50 rounded-md">
                           <div className="w-2 h-2 bg-teal-600 rounded-full"></div>
                           <span className="text-sm font-medium text-gray-700">{column}</span>
@@ -101,9 +101,9 @@ export default function UpdatingPage() {
                     <div className="flex gap-3">
                       <AlertCircle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-semibold text-yellow-800 mb-1">Data Quality Notice</p>
+                        <p className="text-sm font-semibold text-yellow-800 mb-1">Pemberitahuan Kualitas Data</p>
                         <p className="text-xs text-yellow-700 leading-relaxed">
-                          Ensure data quality and accuracy before upload. Invalid or inconsistent data may significantly affect AI prediction accuracy and system performance.
+                          Pastikan kualitas dan akurasi data sebelum mengunggah. Data yang tidak valid atau tidak konsisten dapat secara signifikan mempengaruhi akurasi prediksi AI dan kinerja sistem.
                         </p>
                       </div>
                     </div>
@@ -113,9 +113,9 @@ export default function UpdatingPage() {
                     <div className="flex gap-3">
                       <Shield className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-semibold text-blue-800 mb-1">Security & Privacy</p>
+                        <p className="text-sm font-semibold text-blue-800 mb-1">Keamanan & Privasi</p>
                         <p className="text-xs text-blue-700 leading-relaxed">
-                          All uploads are encrypted and processed securely. Your data is protected with enterprise-grade security measures.
+                          Semua unggahan dienkripsi dan diproses dengan aman. Data Anda dilindungi dengan langkah-langkah keamanan tingkat enterprise.
                         </p>
                       </div>
                     </div>
@@ -133,14 +133,14 @@ export default function UpdatingPage() {
               <div>
                 <CardTitle className="text-lg md:text-xl text-emerald-700 flex items-center gap-2">
                   <Clock className="h-5 w-5" />
-                  Upload History
+                  Riwayat Unggah
                 </CardTitle>
                 <CardDescription className="text-sm mt-1">
-                  Track and manage your previous data uploads
+                  Lacak dan kelola unggahan data sebelumnya
                 </CardDescription>
               </div>
               <Badge variant="outline" className="self-center md:self-start text-xs">
-                Last updated: 5 minutes ago
+                Terakhir diperbarui: 5 menit lalu
               </Badge>
             </div>
           </CardHeader>

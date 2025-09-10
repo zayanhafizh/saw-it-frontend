@@ -13,15 +13,15 @@ export default function EstimatePage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
-                Production Estimates
+                Estimasi Produksi
               </h1>
               <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
-                Detailed production forecasts and estimates by block, month, and year with AI-powered accuracy
+                Perkiraan dan estimasi produksi terperinci berdasarkan blok, bulan, dan tahun dengan akurasi bertenaga AI
               </p>
             </div>
             <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
               <Target className="w-4 h-4 mr-2" />
-              Real-time Data
+              Data Real-time
             </Badge>
           </div>
         </div>
@@ -34,15 +34,15 @@ export default function EstimatePage() {
                 <div className="p-2 bg-emerald-600 rounded-lg group-hover:scale-110 transition-transform">
                   <Calculator className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                Total Estimates
+                Total Estimasi
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xl md:text-2xl font-bold text-gray-900">156</div>
-              <p className="text-xs md:text-sm text-gray-600">Active forecasts</p>
+              <p className="text-xs md:text-sm text-gray-600">Perkiraan aktif</p>
               <div className="mt-2 flex items-center gap-1 text-emerald-600">
                 <TrendingUp className="h-3 w-3" />
-                <span className="text-xs font-medium">+8 new this week</span>
+                <span className="text-xs font-medium">+8 baru minggu ini</span>
               </div>
             </CardContent>
           </Card>
@@ -53,12 +53,12 @@ export default function EstimatePage() {
                 <div className="p-2 bg-teal-600 rounded-lg group-hover:scale-110 transition-transform">
                   <TrendingUp className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                Avg. Accuracy
+                Akurasi Rata-rata
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xl md:text-2xl font-bold text-gray-900">94.2%</div>
-              <p className="text-xs md:text-sm text-gray-600">Last 6 months</p>
+              <p className="text-xs md:text-sm text-gray-600">6 bulan terakhir</p>
               <div className="mt-2">
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div className="bg-teal-600 h-2 rounded-full" style={{width: '94.2%'}}></div>
@@ -73,15 +73,15 @@ export default function EstimatePage() {
                 <div className="p-2 bg-cyan-600 rounded-lg group-hover:scale-110 transition-transform">
                   <Calendar className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                Next Update
+                Pembaruan Berikutnya
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-xl md:text-2xl font-bold text-gray-900">3 days</div>
-              <p className="text-xs md:text-sm text-gray-600">Scheduled refresh</p>
+              <div className="text-xl md:text-2xl font-bold text-gray-900">3 hari</div>
+              <p className="text-xs md:text-sm text-gray-600">Refresh terjadwal</p>
               <div className="mt-2 flex items-center gap-1 text-cyan-600">
                 <AlertCircle className="h-3 w-3" />
-                <span className="text-xs font-medium">Auto-update enabled</span>
+                <span className="text-xs font-medium">Auto-update diaktifkan</span>
               </div>
             </CardContent>
           </Card>
@@ -92,15 +92,15 @@ export default function EstimatePage() {
                 <div className="p-2 bg-indigo-600 rounded-lg group-hover:scale-110 transition-transform">
                   <MapPin className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                Coverage
+                Cakupan
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xl md:text-2xl font-bold text-gray-900">24/24</div>
-              <p className="text-xs md:text-sm text-gray-600">Blocks covered</p>
+              <p className="text-xs md:text-sm text-gray-600">Blok tercakup</p>
               <div className="mt-2">
                 <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">
-                  100% Complete
+                  100% Lengkap
                 </Badge>
               </div>
             </CardContent>
@@ -114,18 +114,18 @@ export default function EstimatePage() {
               <div>
                 <CardTitle className="text-lg md:text-xl text-emerald-700 flex items-center gap-2">
                   <Calculator className="h-5 w-5" />
-                  Production Estimates
+                  Estimasi Produksi
                 </CardTitle>
                 <CardDescription className="text-sm mt-1">
-                  Filter and search through production estimates by various criteria
+                  Filter dan cari melalui estimasi produksi berdasarkan berbagai kriteria
                 </CardDescription>
               </div>
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className="text-xs">
-                  Last updated: 2 hours ago
+                  Terakhir diperbarui: 2 jam lalu
                 </Badge>
                 <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 text-xs">
-                  AI-Enhanced
+                  Ditingkatkan AI
                 </Badge>
               </div>
             </div>
@@ -146,22 +146,22 @@ export default function EstimatePage() {
             <CardHeader>
               <CardTitle className="text-emerald-700 flex items-center gap-2">
                 <TrendingUp className="h-5 w-5" />
-                Forecast Insights
+                Wawasan Perkiraan
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Expected Growth:</span>
+                  <span className="text-sm text-gray-600">Pertumbuhan yang Diharapkan:</span>
                   <span className="text-sm font-bold text-emerald-600">+12.5%</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Peak Season:</span>
-                  <span className="text-sm font-bold text-gray-900">March - May</span>
+                  <span className="text-sm text-gray-600">Musim Puncak:</span>
+                  <span className="text-sm font-bold text-gray-900">Maret - Mei</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Risk Level:</span>
-                  <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">Low</Badge>
+                  <span className="text-sm text-gray-600">Tingkat Risiko:</span>
+                  <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">Rendah</Badge>
                 </div>
               </div>
             </CardContent>
@@ -171,21 +171,21 @@ export default function EstimatePage() {
             <CardHeader>
               <CardTitle className="text-cyan-700 flex items-center gap-2">
                 <Target className="h-5 w-5" />
-                Performance Metrics
+                Metrik Kinerja
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Prediction Confidence:</span>
+                  <span className="text-sm text-gray-600">Kepercayaan Prediksi:</span>
                   <span className="text-sm font-bold text-cyan-600">95.2%</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Data Completeness:</span>
+                  <span className="text-sm text-gray-600">Kelengkapan Data:</span>
                   <span className="text-sm font-bold text-gray-900">100%</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Model Version:</span>
+                  <span className="text-sm text-gray-600">Versi Model:</span>
                   <Badge variant="outline" className="text-xs">v2.1.0</Badge>
                 </div>
               </div>

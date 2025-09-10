@@ -20,7 +20,7 @@ const initialMessages: Message[] = [
   {
     id: "1",
     content:
-      "Hello! I'm Palm-AI, your intelligent assistant for palm oil plantation management. I can help you with production optimization, plant health monitoring, harvest planning, and data analysis. How can I assist you today?",
+      "Halo! Saya Palm-AI, asisten cerdas Anda untuk manajemen perkebunan kelapa sawit. Saya dapat membantu optimisasi produksi, pemantauan kesehatan tanaman, perencanaan panen, dan analisis data. Bagaimana saya bisa membantu Anda hari ini?",
     sender: "ai",
     timestamp: new Date(),
   },
@@ -61,23 +61,23 @@ export function ChatInterface() {
   const getAIResponse = (userInput: string): string => {
     const input = userInput.toLowerCase()
 
-    if (input.includes("production") || input.includes("yield")) {
-      return "Based on your current data, I can see that your average yield is 18.5 tons/hectare. To optimize production, I recommend: 1) Focus on Block A-12 which shows the highest potential, 2) Implement precision fertilization in underperforming areas, 3) Consider adjusting harvest cycles based on palm maturity. Would you like me to analyze specific blocks in more detail?"
+    if (input.includes("production") || input.includes("yield") || input.includes("produksi") || input.includes("hasil")) {
+      return "Berdasarkan data saat ini, saya dapat melihat bahwa rata-rata hasil Anda adalah 18,5 ton/hektare. Untuk mengoptimalkan produksi, saya merekomendasikan: 1) Fokus pada Blok A-12 yang menunjukkan potensi tertinggi, 2) Terapkan pemupukan presisi di area berproduksi rendah, 3) Pertimbangkan penyesuaian siklus panen berdasarkan kematangan kelapa sawit. Apakah Anda ingin saya menganalisis blok-blok tertentu secara lebih detail?"
     }
 
-    if (input.includes("disease") || input.includes("health")) {
-      return "Palm health monitoring is crucial for maintaining productivity. Key indicators to watch: 1) Yellowing fronds (possible nutrient deficiency), 2) Crown rot symptoms, 3) Pest infestations like rhinoceros beetles. I recommend implementing weekly visual inspections and soil testing every 3 months. Would you like me to create a monitoring schedule for your plantation?"
+    if (input.includes("disease") || input.includes("health") || input.includes("penyakit") || input.includes("kesehatan")) {
+      return "Pemantauan kesehatan kelapa sawit sangat penting untuk menjaga produktivitas. Indikator utama yang perlu diperhatikan: 1) Pelepah menguning (kemungkinan kekurangan nutrisi), 2) Gejala busuk pucuk, 3) Serangan hama seperti kumbang tanduk. Saya merekomendasikan inspeksi visual mingguan dan pengujian tanah setiap 3 bulan. Apakah Anda ingin saya membuat jadwal pemantauan untuk perkebunan Anda?"
     }
 
-    if (input.includes("harvest") || input.includes("schedule")) {
-      return "Optimal harvest timing depends on several factors: 1) Palm age and variety, 2) Seasonal patterns, 3) Market conditions. Based on your plantation data, I suggest harvesting mature bunches every 10-14 days. Blocks A and C are currently showing peak ripeness indicators. Shall I generate a detailed harvest schedule for the next month?"
+    if (input.includes("harvest") || input.includes("schedule") || input.includes("panen") || input.includes("jadwal")) {
+      return "Waktu panen optimal tergantung pada beberapa faktor: 1) Umur dan varietas kelapa sawit, 2) Pola musiman, 3) Kondisi pasar. Berdasarkan data perkebunan Anda, saya menyarankan panen tandan matang setiap 10-14 hari. Blok A dan C saat ini menunjukkan indikator kematangan puncak. Haruskah saya membuat jadwal panen detail untuk bulan depan?"
     }
 
-    if (input.includes("fertilizer") || input.includes("nutrition")) {
-      return "Proper nutrition is essential for palm productivity. I recommend: 1) NPK 15:15:6:4 for mature palms, 2) Apply 2-3 kg per palm annually, 3) Split applications during dry seasons. Your soil analysis shows adequate potassium but low nitrogen in Blocks D and F. Would you like me to create a customized fertilization plan?"
+    if (input.includes("fertilizer") || input.includes("nutrition") || input.includes("pupuk") || input.includes("nutrisi")) {
+      return "Nutrisi yang tepat sangat penting untuk produktivitas kelapa sawit. Saya merekomendasikan: 1) NPK 15:15:6:4 untuk kelapa sawit dewasa, 2) Aplikasi 2-3 kg per pohon per tahun, 3) Aplikasi terbagi selama musim kemarau. Analisis tanah Anda menunjukkan kalium cukup tetapi nitrogen rendah di Blok D dan F. Apakah Anda ingin saya membuat rencana pemupukan yang disesuaikan?"
     }
 
-    return "I understand you're asking about palm plantation management. Based on your question, I'd recommend reviewing your current production data and implementing best practices for sustainable palm oil production. Could you provide more specific details about what aspect you'd like me to focus on - production optimization, plant health, or operational efficiency?"
+    return "Saya memahami Anda bertanya tentang manajemen perkebunan kelapa sawit. Berdasarkan pertanyaan Anda, saya merekomendasikan untuk meninjau data produksi saat ini dan menerapkan praktik terbaik untuk produksi kelapa sawit yang berkelanjutan. Bisakah Anda memberikan detail yang lebih spesifik tentang aspek apa yang ingin saya fokuskan - optimisasi produksi, kesehatan tanaman, atau efisiensi operasional?"
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -98,8 +98,8 @@ export function ChatInterface() {
             </AvatarFallback>
           </Avatar>
           <div>
-            <h3 className="font-semibold text-emerald-900">Palm-AI Assistant</h3>
-            <p className="text-sm text-emerald-600">Online • Ready to help</p>
+            <h3 className="font-semibold text-emerald-900">Asisten Palm-AI</h3>
+            <p className="text-sm text-emerald-600">Online • Siap membantu</p>
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@ export function ChatInterface() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask Palm-AI about production, plant health, or optimization..."
+            placeholder="Tanyakan kepada Palm-AI tentang produksi, kesehatan tanaman, atau optimisasi..."
             className="flex-1 border-emerald-200 focus:border-emerald-400"
             disabled={isLoading}
           />
@@ -203,7 +203,7 @@ export function ChatInterface() {
           </Button>
         </div>
         <p className="text-xs text-gray-500 mt-2">
-          Palm-AI can make mistakes. Please verify important information with agricultural experts.
+          Palm-AI dapat membuat kesalahan. Harap verifikasi informasi penting dengan ahli pertanian.
         </p>
       </div>
     </div>
