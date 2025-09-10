@@ -95,24 +95,40 @@ const getStatusColor = (status: string) => {
 
 export function PlantationMap() {
   const [selectedArea, setSelectedArea] = useState<(typeof plantationAreas)[0] | null>(null)
+  const [hoveredArea, setHoveredArea] = useState<(typeof plantationAreas)[0] | null>(null)
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
 
   const handleAreaClick = (area: (typeof plantationAreas)[0]) => {
     setSelectedArea(area)
   }
 
+  const handleAreaHover = (area: (typeof plantationAreas)[0], event: React.MouseEvent) => {
+    setHoveredArea(area)
+    const rect = event.currentTarget.getBoundingClientRect()
+    setTooltipPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.top - 10
+    })
+  }
+
+  const handleAreaLeave = () => {
+    setHoveredArea(null)
+  }
+
   return (
-    <Card className="border-emerald-200 hover:shadow-lg transition-all duration-300">
-      <CardHeader>
-        <CardTitle className="text-emerald-700 flex items-center gap-2">
-          <MapPin className="h-5 w-5" />
-          Peta Area Kebun Sawit
-        </CardTitle>
-        <CardDescription>Status produksi real-time berdasarkan sektor</CardDescription>
-      </CardHeader>
+    <div className="relative">
+      <Card className="border-emerald-200 dark:border-emerald-700 dark:bg-gray-800/50 hover:shadow-lg transition-all duration-300">
+        <CardHeader>
+          <CardTitle className="text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
+            <MapPin className="h-5 w-5" />
+            Peta Area Kebun Sawit
+          </CardTitle>
+          <CardDescription className="dark:text-gray-400">Status produksi real-time berdasarkan sektor</CardDescription>
+        </CardHeader>
       <CardContent className="space-y-4">
         {/* Background pattern */}
         <div
-          className="relative rounded-lg overflow-hidden h-[280px] bg-cover bg-center"
+          className="relative rounded-lg h-[280px] bg-cover bg-center"
           style={{
             backgroundImage: `url('/aerial-satellite-view-of-palm-oil-plantation-with-.jpg')`,
           }}
@@ -139,21 +155,13 @@ export function PlantationMap() {
               className="absolute group cursor-pointer"
               style={{ left: `${area.x}%`, top: `${area.y}%` }}
               onClick={() => handleAreaClick(area)}
+              onMouseEnter={(e) => handleAreaHover(area, e)}
+              onMouseLeave={handleAreaLeave}
             >
               <div
                 className={`w-10 h-10 rounded-full border-3 ${getStatusColor(area.status)} shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-125 hover:shadow-2xl ${selectedArea?.id === area.id ? "ring-4 ring-blue-400 scale-110" : ""}`}
               >
                 <Leaf className="h-5 w-5 text-white drop-shadow-sm" />
-              </div>
-
-              {/* Tooltip */}
-              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs rounded-lg px-4 py-3 whitespace-nowrap z-20 shadow-xl">
-                <div className="font-semibold text-emerald-300">{area.name}</div>
-                <div className="text-gray-200">
-                  {area.blocks} blok • {area.production} ton
-                </div>
-                <div className="text-xs text-gray-300 mt-1">Target: {area.target} ton</div>
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900/95"></div>
               </div>
             </div>
           ))}
@@ -163,22 +171,22 @@ export function PlantationMap() {
         <div className="flex items-center justify-center gap-6 text-sm">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
-            <span className="text-gray-600">Produksi Tinggi</span>
+            <span className="text-gray-600 dark:text-gray-400">Produksi Tinggi</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <span className="text-gray-600">Produksi Sedang</span>
+            <span className="text-gray-600 dark:text-gray-400">Produksi Sedang</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <span className="text-gray-600">Produksi Rendah</span>
+            <span className="text-gray-600 dark:text-gray-400">Produksi Rendah</span>
           </div>
         </div>
 
         {/* Notifikasi Target */}
-        <div className="bg-gray-50 rounded-lg p-4">
-          <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-            <Target className="h-4 w-4 text-blue-600" />
+        <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
+          <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
+            <Target className="h-4 w-4 text-blue-600 dark:text-blue-400" />
             Notifikasi Target
           </h4>
           <div className="space-y-2">
@@ -186,16 +194,16 @@ export function PlantationMap() {
               const isAboveTarget = area.production > area.target
               const percentage = ((area.production / area.target) * 100).toFixed(1)
               return (
-                <div key={area.id} className="flex items-center justify-between p-2 bg-white rounded-md">
-                  <span className="text-sm font-medium text-gray-700">{area.name}</span>
+                <div key={area.id} className="flex items-center justify-between p-2 bg-white dark:bg-gray-700/50 rounded-md">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{area.name}</span>
                   <div className="flex items-center gap-2">
-                    <Badge className={isAboveTarget ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}>
+                    <Badge className={isAboveTarget ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400" : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"}>
                       {percentage}% dari target
                     </Badge>
                     {isAboveTarget ? (
-                      <TrendingUp className="h-3 w-3 text-green-600" />
+                      <TrendingUp className="h-3 w-3 text-green-600 dark:text-green-400" />
                     ) : (
-                      <AlertTriangle className="h-3 w-3 text-red-600" />
+                      <AlertTriangle className="h-3 w-3 text-red-600 dark:text-red-400" />
                     )}
                   </div>
                 </div>
@@ -206,29 +214,99 @@ export function PlantationMap() {
 
         {/* Detail Area yang Dipilih */}
         {selectedArea && (
-          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-            <h4 className="font-semibold text-blue-900 mb-3">Detail {selectedArea.name}</h4>
+          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
+            <h4 className="font-semibold text-blue-900 dark:text-blue-400 mb-3">Detail {selectedArea.name}</h4>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Produksi Saat Ini:</span>
-                <span className="text-sm font-medium">{selectedArea.production} ton</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Produksi Saat Ini:</span>
+                <span className="text-sm font-medium dark:text-gray-100">{selectedArea.production} ton</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Target:</span>
-                <span className="text-sm font-medium">{selectedArea.target} ton</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Target:</span>
+                <span className="text-sm font-medium dark:text-gray-100">{selectedArea.target} ton</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Prediksi Produksi:</span>
-                <span className="text-sm font-medium text-blue-700">{selectedArea.prediction}</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Prediksi Produksi:</span>
+                <span className="text-sm font-medium text-blue-700 dark:text-blue-400">{selectedArea.prediction}</span>
               </div>
               <div className="mt-3">
-                <span className="text-sm text-gray-600">Langkah Evaluasi:</span>
-                <p className="text-sm font-medium text-gray-900 mt-1">{selectedArea.evaluation}</p>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Langkah Evaluasi:</span>
+                <p className="text-sm font-medium text-gray-900 dark:text-gray-100 mt-1">{selectedArea.evaluation}</p>
               </div>
             </div>
           </div>
         )}
-      </CardContent>
-    </Card>
+        </CardContent>
+
+        {/* Enhanced Tooltip Portal */}
+        {hoveredArea && (
+          <div 
+            className="fixed z-50 pointer-events-none transform -translate-x-1/2 -translate-y-full"
+            style={{
+              left: tooltipPosition.x,
+              top: tooltipPosition.y
+            }}
+          >
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-xl shadow-2xl p-4 min-w-[300px] max-w-[350px] animate-in fade-in-0 zoom-in-95 duration-200">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-3">
+                <div className="font-bold text-lg text-gray-900 dark:text-gray-100">{hoveredArea.name}</div>
+                <div className={`w-3 h-3 rounded-full ${getStatusColor(hoveredArea.status).replace('border-', 'bg-').split(' ')[0]}`}></div>
+              </div>
+
+              {/* Production Info */}
+              <div className="space-y-2 mb-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Produksi Saat Ini:</span>
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">{hoveredArea.production.toLocaleString()} ton</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Target:</span>
+                  <span className="font-medium text-gray-900 dark:text-gray-100">{hoveredArea.target.toLocaleString()} ton</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Jumlah Blok:</span>
+                  <span className="font-medium text-gray-900 dark:text-gray-100">{hoveredArea.blocks} blok</span>
+                </div>
+              </div>
+
+              {/* Performance Badge */}
+              <div className="mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Performance:</span>
+                  <Badge className={
+                    hoveredArea.production > hoveredArea.target 
+                      ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400" 
+                      : hoveredArea.production >= hoveredArea.target * 0.9 
+                      ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                      : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
+                  }>
+                    {((hoveredArea.production / hoveredArea.target) * 100).toFixed(1)}% dari target
+                  </Badge>
+                </div>
+              </div>
+
+              {/* Prediction */}
+              <div className="mb-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Prediksi Bulan Depan:</div>
+                <div className="font-semibold text-blue-700 dark:text-blue-400">{hoveredArea.prediction}</div>
+              </div>
+
+              {/* Evaluation */}
+              <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Rekomendasi:</div>
+                <div className="text-sm font-medium text-gray-900 dark:text-gray-100">{hoveredArea.evaluation}</div>
+              </div>
+
+              {/* Arrow pointing down */}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2">
+                <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-white dark:border-t-gray-800"></div>
+                <div className="w-0 h-0 border-l-[11px] border-r-[11px] border-t-[11px] border-l-transparent border-r-transparent border-t-gray-200 dark:border-t-gray-600 absolute top-[-1px] left-1/2 transform -translate-x-1/2"></div>
+              </div>
+            </div>
+          </div>
+        )}
+      </Card>
+    </div>
   )
 }

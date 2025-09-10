@@ -17,18 +17,29 @@ export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-emerald-200/30 dark:bg-emerald-800/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-20 right-16 w-24 h-24 bg-teal-200/40 dark:bg-teal-800/30 rounded-full blur-lg animate-bounce"></div>
+        <div className="absolute top-32 left-1/3 w-16 h-16 bg-cyan-200/50 dark:bg-cyan-800/40 rounded-full blur-md"></div>
+        <div className="absolute top-16 right-1/4 w-20 h-20 bg-emerald-300/20 dark:bg-emerald-700/30 rounded-full blur-lg animate-pulse"></div>
+      </div>
+      
       {/* Navigation Header */}
-      <header className="absolute inset-x-0 top-0 z-50">
-        <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <header className="absolute inset-x-0 top-0 z-50 backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 border-b border-emerald-100/50 dark:border-emerald-800/50">
+        <nav className="flex items-center justify-between p-2 lg:px-6" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Saw-It</span>
-              <div className="flex items-center gap-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 shadow-lg overflow-hidden">
-                  <img src="/saw-it-logo.png" alt="Saw-It Logo" className="h-8 w-8 object-contain" />
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg p-0.5">
+                  <img src="/saw-it-logo.png" alt="Saw-It Logo" className="h-11 w-11 object-contain drop-shadow-sm" />
                 </div>
-                <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">Saw-It</span>
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400 leading-tight">SAW-IT</span>
+                  <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight">Platform Manajemen Kelapa Sawit</span>
+                </div>
               </div>
             </Link>
           </div>
@@ -64,15 +75,18 @@ export default function HomePage() {
 
         {/* Mobile menu */}
         <div className={cn("lg:hidden", mobileMenuOpen ? "fixed inset-0 z-50" : "hidden")}>
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white/95 dark:bg-gray-900/95 backdrop-blur-md px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:ring-emerald-800/20">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Saw-It</span>
-                <div className="flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 overflow-hidden">
-                    <img src="/saw-it-logo.png" alt="Saw-It Logo" className="h-6 w-6 object-contain" />
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-md p-0.5">
+                    <img src="/saw-it-logo.png" alt="Saw-It Logo" className="h-9 w-9 object-contain drop-shadow-sm" />
                   </div>
-                  <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400">Saw-It</span>
+                  <div className="flex flex-col">
+                    <span className="text-base font-bold text-emerald-600 dark:text-emerald-400 leading-tight">SAW-IT</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight">Platform Kelapa Sawit</span>
+                  </div>
                 </div>
               </Link>
               <Button
@@ -114,32 +128,58 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative isolate px-6 pt-20 lg:px-8">
+        {/* Enhanced background gradients */}
         <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-400 to-cyan-600 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
+          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-400 via-teal-400 to-cyan-600 opacity-40 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] animate-pulse" />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="absolute inset-x-0 -top-20 -z-10 transform-gpu overflow-hidden blur-2xl">
+          <div className="relative left-[calc(50%+15rem)] aspect-[1155/678] w-[20rem] -translate-x-1/2 rotate-[-15deg] bg-gradient-to-tr from-cyan-300 via-emerald-300 to-teal-500 opacity-25 sm:left-[calc(50%+25rem)] sm:w-[40rem]" />
+        </div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-20 left-8 w-4 h-4 bg-emerald-400 rounded-full animate-ping"></div>
+        <div className="absolute top-32 right-12 w-3 h-3 bg-teal-400 rounded-full animate-pulse"></div>
+        <div className="absolute top-44 left-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></div>
+        
+        <div className="mx-auto max-w-2xl py-8 sm:py-12 lg:py-16">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-gray-100/10 hover:ring-gray-900/20 dark:hover:ring-gray-100/20">
-              Platform AI terdepan untuk kelapa sawit.{" "}
-              <Link href="/about" className="font-semibold text-emerald-600 dark:text-emerald-400">
+            <div className="relative rounded-full px-4 py-2 text-sm leading-6 text-gray-600 dark:text-gray-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20 hover:ring-emerald-500/30 dark:hover:ring-emerald-400/30 bg-emerald-50/80 dark:bg-emerald-900/20 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+              ✨ Platform AI terdepan untuk kelapa sawit.{" "}
+              <Link href="/about" className="font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300">
                 <span className="absolute inset-0" aria-hidden="true" />
                 Pelajari lebih lanjut <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
           </div>
           <div className="text-center">
+            {/* Logo besar di tengah dengan lingkaran hijau */}
+            <div className="mb-6 flex justify-center">
+              <div className="relative">
+                <div className="flex h-40 w-40 sm:h-48 sm:w-48 lg:h-56 lg:w-56 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 shadow-2xl p-4 sm:p-6 hover:scale-105 transition-all duration-500 hover:shadow-emerald-500/25">
+                  <img 
+                    src="/saw-it-logo.png" 
+                    alt="Saw-It Logo" 
+                    className="h-32 w-32 sm:h-36 sm:w-36 lg:h-44 lg:w-44 object-contain drop-shadow-lg filter brightness-110"
+                  />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-teal-400 to-teal-500 rounded-full animate-pulse shadow-lg border-2 border-white dark:border-gray-900"></div>
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full animate-pulse shadow-lg border-2 border-white dark:border-gray-900"></div>
+                <div className="absolute top-4 -left-4 w-4 h-4 bg-gradient-to-r from-emerald-300 to-emerald-400 rounded-full animate-bounce shadow-md"></div>
+              </div>
+            </div>
+            
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
               Revolusi Manajemen{" "}
               <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 Kelapa Sawit
               </span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+            <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-400">
               Tingkatkan produktivitas perkebunan dengan teknologi AI canggih, analitik real-time, dan prediksi yang
               akurat untuk hasil panen optimal.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-8 flex items-center justify-center gap-x-6">
               <Link href="/dashboard">
                 <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3">
                   Mulai Sekarang
@@ -161,7 +201,7 @@ export default function HomePage() {
       </div>
 
       {/* Features Section */}
-      <div id="features" className="py-24 sm:py-32">
+      <div id="features" className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-emerald-600 dark:text-emerald-400">Fitur Unggulan</h2>
