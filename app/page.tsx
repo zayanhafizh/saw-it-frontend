@@ -1,19 +1,16 @@
 "use client"
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, TrendingUp, MapPin, Brain, Zap, Shield, Clock, Users, Star, Target, Leaf, Menu, X } from "lucide-react"
+import { ArrowRight, TrendingUp, MapPin, Brain, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
-  { name: 'Beranda', href: '/' },
-  { name: 'Tentang', href: '/about' },
-  { name: 'Fitur', href: '#features' },
-  { name: 'Kontak', href: '#contact' },
+  { name: "Beranda", href: "/" },
+  { name: "Tentang", href: "/about" },
+  { name: "Fitur", href: "#features" },
+  { name: "Kontak", href: "#contact" },
 ]
 
 export default function HomePage() {
@@ -29,15 +26,9 @@ export default function HomePage() {
               <span className="sr-only">Saw-It</span>
               <div className="flex items-center gap-2">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 shadow-lg overflow-hidden">
-                  <img 
-                    src="/saw-it-logo.png" 
-                    alt="Saw-It Logo" 
-                    className="h-8 w-8 object-contain"
-                  />
+                  <img src="/saw-it-logo.png" alt="Saw-It Logo" className="h-8 w-8 object-contain" />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                  Saw-It
-                </span>
+                <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">Saw-It</span>
               </div>
             </Link>
           </div>
@@ -66,33 +57,22 @@ export default function HomePage() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
             <ThemeToggle />
             <Link href="/dashboard">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
-                Masuk Dashboard
-              </Button>
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Masuk Dashboard</Button>
             </Link>
           </div>
         </nav>
 
         {/* Mobile menu */}
-        <div className={cn(
-          "lg:hidden",
-          mobileMenuOpen ? "fixed inset-0 z-50" : "hidden"
-        )}>
+        <div className={cn("lg:hidden", mobileMenuOpen ? "fixed inset-0 z-50" : "hidden")}>
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Saw-It</span>
                 <div className="flex items-center gap-2">
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 overflow-hidden">
-                    <img 
-                      src="/saw-it-logo.png" 
-                      alt="Saw-It Logo" 
-                      className="h-6 w-6 object-contain"
-                    />
+                    <img src="/saw-it-logo.png" alt="Saw-It Logo" className="h-6 w-6 object-contain" />
                   </div>
-                  <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                    Saw-It
-                  </span>
+                  <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400">Saw-It</span>
                 </div>
               </Link>
               <Button
@@ -141,7 +121,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-400 ring-1 ring-gray-900/10 dark:ring-gray-100/10 hover:ring-gray-900/20 dark:hover:ring-gray-100/20">
-              Platform AI terdepan untuk kelapa sawit.{' '}
+              Platform AI terdepan untuk kelapa sawit.{" "}
               <Link href="/about" className="font-semibold text-emerald-600 dark:text-emerald-400">
                 <span className="absolute inset-0" aria-hidden="true" />
                 Pelajari lebih lanjut <span aria-hidden="true">&rarr;</span>
@@ -150,13 +130,14 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
-              Revolusi Manajemen{' '}
+              Revolusi Manajemen{" "}
               <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 Kelapa Sawit
               </span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-              Tingkatkan produktivitas perkebunan dengan teknologi AI canggih, analitik real-time, dan prediksi yang akurat untuk hasil panen optimal.
+              Tingkatkan produktivitas perkebunan dengan teknologi AI canggih, analitik real-time, dan prediksi yang
+              akurat untuk hasil panen optimal.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link href="/dashboard">
@@ -165,7 +146,10 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/about" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400">
+              <Link
+                href="/about"
+                className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400"
+              >
                 Demo Langsung <span aria-hidden="true">→</span>
               </Link>
             </div>
@@ -180,9 +164,7 @@ export default function HomePage() {
       <div id="features" className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-emerald-600 dark:text-emerald-400">
-              Fitur Unggulan
-            </h2>
+            <h2 className="text-base font-semibold leading-7 text-emerald-600 dark:text-emerald-400">Fitur Unggulan</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
               Semua yang Anda butuhkan untuk mengelola perkebunan
             </p>
@@ -204,7 +186,10 @@ export default function HomePage() {
                     Prediksi akurat hasil panen berdasarkan data historis, kondisi cuaca, dan analisis NDVI dengan AI.
                   </p>
                   <p className="mt-6">
-                    <Link href="/estimate" className="text-sm font-semibold leading-6 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300">
+                    <Link
+                      href="/estimate"
+                      className="text-sm font-semibold leading-6 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300"
+                    >
                       Lihat estimasi <span aria-hidden="true">→</span>
                     </Link>
                   </p>
@@ -220,10 +205,14 @@ export default function HomePage() {
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-400">
                   <p className="flex-auto">
-                    Konsultasi dengan AI untuk mendapatkan rekomendasi pemeliharaan, pupuk, dan strategi peningkatan hasil.
+                    Konsultasi dengan AI untuk mendapatkan rekomendasi pemeliharaan, pupuk, dan strategi peningkatan
+                    hasil.
                   </p>
                   <p className="mt-6">
-                    <Link href="/palm-ai" className="text-sm font-semibold leading-6 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300">
+                    <Link
+                      href="/palm-ai"
+                      className="text-sm font-semibold leading-6 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300"
+                    >
                       Chat dengan AI <span aria-hidden="true">→</span>
                     </Link>
                   </p>
@@ -242,7 +231,10 @@ export default function HomePage() {
                     Visualisasi area produktif dan monitoring kesehatan tanaman dengan peta interaktif real-time.
                   </p>
                   <p className="mt-6">
-                    <Link href="/dashboard" className="text-sm font-semibold leading-6 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300">
+                    <Link
+                      href="/dashboard"
+                      className="text-sm font-semibold leading-6 text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300"
+                    >
                       Lihat peta <span aria-hidden="true">→</span>
                     </Link>
                   </p>
@@ -268,7 +260,9 @@ export default function HomePage() {
             <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
               <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
                 <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Hektar Termonitor</dt>
-                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">50,000+</dd>
+                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                  50,000+
+                </dd>
               </div>
               <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
                 <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Peningkatan Hasil</dt>
@@ -276,7 +270,9 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
                 <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Pengguna Aktif</dt>
-                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">5,000+</dd>
+                <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                  5,000+
+                </dd>
               </div>
               <div className="flex flex-col bg-white dark:bg-gray-900 p-8">
                 <dt className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">Akurasi Prediksi</dt>

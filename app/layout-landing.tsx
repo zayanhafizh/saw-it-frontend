@@ -1,6 +1,8 @@
 "use client"
 
-import { Inter } from 'next/font/google'
+import type React from "react"
+
+import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -9,13 +11,13 @@ import Link from "next/link"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] })
 
 const navigation = [
-  { name: 'Beranda', href: '/' },
-  { name: 'Tentang', href: '/about' },
-  { name: 'Fitur', href: '#features' },
-  { name: 'Kontak', href: '#contact' },
+  { name: "Beranda", href: "/" },
+  { name: "Tentang", href: "/about" },
+  { name: "Fitur", href: "#features" },
+  { name: "Kontak", href: "#contact" },
 ]
 
 interface LandingLayoutProps {
@@ -29,12 +31,7 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
     <html lang="id" suppressHydrationWarning>
       <head />
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="min-h-screen bg-white dark:bg-gray-900">
             {/* Navigation Header */}
             <header className="absolute inset-x-0 top-0 z-50">
@@ -46,9 +43,7 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 shadow-lg">
                         <Leaf className="h-6 w-6 text-white" />
                       </div>
-                      <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                        Saw-It
-                      </span>
+                      <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">Saw-It</span>
                     </div>
                   </Link>
                 </div>
@@ -77,18 +72,13 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
                   <ThemeToggle />
                   <Link href="/dashboard">
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
-                      Masuk Dashboard
-                    </Button>
+                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Masuk Dashboard</Button>
                   </Link>
                 </div>
               </nav>
 
               {/* Mobile menu */}
-              <div className={cn(
-                "lg:hidden",
-                mobileMenuOpen ? "fixed inset-0 z-50" : "hidden"
-              )}>
+              <div className={cn("lg:hidden", mobileMenuOpen ? "fixed inset-0 z-50" : "hidden")}>
                 <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                   <div className="flex items-center justify-between">
                     <Link href="/" className="-m-1.5 p-1.5">
@@ -97,9 +87,7 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600">
                           <Leaf className="h-5 w-5 text-white" />
                         </div>
-                        <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                          Saw-It
-                        </span>
+                        <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400">Saw-It</span>
                       </div>
                     </Link>
                     <Button
@@ -141,9 +129,7 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
             </header>
 
             {/* Main Content */}
-            <main>
-              {children}
-            </main>
+            <main>{children}</main>
 
             {/* Footer */}
             <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">

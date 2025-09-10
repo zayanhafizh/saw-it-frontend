@@ -12,11 +12,12 @@ export default function EstimatePage() {
         <div className="mb-6 md:mb-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                 Estimasi Produksi
               </h1>
               <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
-                Perkiraan dan estimasi produksi terperinci berdasarkan blok, bulan, dan tahun dengan akurasi bertenaga AI
+                Perkiraan dan estimasi produksi terperinci berdasarkan blok, bulan, dan tahun dengan akurasi bertenaga
+                AI
               </p>
             </div>
             <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
@@ -61,7 +62,7 @@ export default function EstimatePage() {
               <p className="text-xs md:text-sm text-gray-600">6 bulan terakhir</p>
               <div className="mt-2">
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-teal-600 h-2 rounded-full" style={{width: '94.2%'}}></div>
+                  <div className="bg-teal-600 h-2 rounded-full" style={{ width: "94.2%" }}></div>
                 </div>
               </div>
             </CardContent>
@@ -99,9 +100,7 @@ export default function EstimatePage() {
               <div className="text-xl md:text-2xl font-bold text-gray-900">24/24</div>
               <p className="text-xs md:text-sm text-gray-600">Blok tercakup</p>
               <div className="mt-2">
-                <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">
-                  100% Lengkap
-                </Badge>
+                <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">100% Lengkap</Badge>
               </div>
             </CardContent>
           </Card>
@@ -124,9 +123,7 @@ export default function EstimatePage() {
                 <Badge variant="outline" className="text-xs">
                   Terakhir diperbarui: 2 jam lalu
                 </Badge>
-                <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 text-xs">
-                  Ditingkatkan AI
-                </Badge>
+                <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 text-xs">Ditingkatkan AI</Badge>
               </div>
             </div>
           </CardHeader>
@@ -186,7 +183,9 @@ export default function EstimatePage() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Versi Model:</span>
-                  <Badge variant="outline" className="text-xs">v2.1.0</Badge>
+                  <Badge variant="outline" className="text-xs">
+                    v2.1.0
+                  </Badge>
                 </div>
               </div>
             </CardContent>

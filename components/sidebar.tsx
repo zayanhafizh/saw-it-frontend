@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, Calculator, Bot, Upload, Leaf, Info, Menu, X, User } from "lucide-react"
+import { LayoutDashboard, Calculator, Bot, Upload, Info, Menu, X, User } from "lucide-react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -53,10 +53,10 @@ export function Sidebar() {
         setIsMobileOpen(false)
       }
     }
-    
+
     checkIsMobile()
-    window.addEventListener('resize', checkIsMobile)
-    return () => window.removeEventListener('resize', checkIsMobile)
+    window.addEventListener("resize", checkIsMobile)
+    return () => window.removeEventListener("resize", checkIsMobile)
   }, [])
 
   const toggleMobileSidebar = () => {
@@ -83,21 +83,18 @@ export function Sidebar() {
       </div>
 
       {/* Mobile backdrop */}
-      {isMobileOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
-          onClick={closeMobileSidebar}
-        />
-      )}
+      {isMobileOpen && <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={closeMobileSidebar} />}
 
       {/* Sidebar */}
-      <div className={cn(
-        "flex h-full flex-col bg-gradient-to-b from-emerald-900 via-emerald-800 to-emerald-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white shadow-xl border-r border-emerald-700/50 dark:border-gray-700/50",
-        "fixed md:relative z-50 md:z-auto",
-        isMobile ? "w-80" : "w-64",
-        isMobile && !isMobileOpen ? "-translate-x-full" : "translate-x-0",
-        "transition-transform duration-300 ease-in-out"
-      )}>
+      <div
+        className={cn(
+          "flex h-full flex-col bg-gradient-to-b from-emerald-900 via-emerald-800 to-emerald-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white shadow-xl border-r border-emerald-700/50 dark:border-gray-700/50",
+          "fixed md:relative z-50 md:z-auto",
+          isMobile ? "w-80" : "w-64",
+          isMobile && !isMobileOpen ? "-translate-x-full" : "translate-x-0",
+          "transition-transform duration-300 ease-in-out",
+        )}
+      >
         {/* Close button for mobile */}
         {isMobile && (
           <div className="flex justify-between items-center p-4 md:hidden">
@@ -116,16 +113,10 @@ export function Sidebar() {
         {/* Logo and Brand */}
         <div className="flex items-center gap-3 px-6 py-6 border-b border-emerald-700/50">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600/20 shadow-lg overflow-hidden">
-            <img 
-              src="/saw-it-logo.png" 
-              alt="Saw-It Logo" 
-              className="h-10 w-10 object-contain"
-            />
+            <img src="/saw-it-logo.png" alt="Saw-It Logo" className="h-10 w-10 object-contain" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-emerald-100 bg-clip-text text-transparent">
-              Saw-It
-            </h1>
+            <h1 className="text-2xl font-bold text-gray-100 dark:text-white">Saw-It</h1>
             <p className="text-sm text-emerald-200 font-medium">Manajemen Sawit</p>
           </div>
         </div>
@@ -142,19 +133,19 @@ export function Sidebar() {
                     onClick={closeMobileSidebar}
                     className={cn(
                       "flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 group",
-                      isActive 
-                        ? "bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-lg scale-105" 
+                      isActive
+                        ? "bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-lg scale-105"
                         : "text-emerald-100 hover:bg-emerald-800/60 hover:text-white hover:scale-105 hover:shadow-md",
                     )}
                   >
-                    <item.icon className={cn(
-                      "h-5 w-5 transition-transform duration-200",
-                      isActive ? "scale-110" : "group-hover:scale-110"
-                    )} />
+                    <item.icon
+                      className={cn(
+                        "h-5 w-5 transition-transform duration-200",
+                        isActive ? "scale-110" : "group-hover:scale-110",
+                      )}
+                    />
                     {item.name}
-                    {isActive && (
-                      <div className="ml-auto w-2 h-2 bg-emerald-300 rounded-full animate-pulse" />
-                    )}
+                    {isActive && <div className="ml-auto w-2 h-2 bg-emerald-300 rounded-full animate-pulse" />}
                   </Link>
                 </li>
               )

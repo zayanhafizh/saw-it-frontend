@@ -13,11 +13,12 @@ export default function UpdatingPage() {
         <div className="mb-6 md:mb-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                 Manajemen Data
               </h1>
               <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
-                Unggah dan kelola data produksi untuk perkiraan dan analisis yang akurat dengan keamanan tingkat enterprise
+                Unggah dan kelola data produksi untuk perkiraan dan analisis yang akurat dengan keamanan tingkat
+                enterprise
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
@@ -69,15 +70,21 @@ export default function UpdatingPage() {
                     <div className="grid grid-cols-1 gap-2">
                       <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
                         <span className="text-sm font-medium text-gray-700">File CSV</span>
-                        <Badge variant="outline" className="text-xs">.csv</Badge>
+                        <Badge variant="outline" className="text-xs">
+                          .csv
+                        </Badge>
                       </div>
                       <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
                         <span className="text-sm font-medium text-gray-700">File Excel</span>
-                        <Badge variant="outline" className="text-xs">.xlsx, .xls</Badge>
+                        <Badge variant="outline" className="text-xs">
+                          .xlsx, .xls
+                        </Badge>
                       </div>
                       <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
                         <span className="text-sm font-medium text-gray-700">File JSON</span>
-                        <Badge variant="outline" className="text-xs">.json</Badge>
+                        <Badge variant="outline" className="text-xs">
+                          .json
+                        </Badge>
                       </div>
                     </div>
                   </div>
@@ -88,7 +95,7 @@ export default function UpdatingPage() {
                       Kolom yang Diperlukan
                     </h4>
                     <div className="space-y-2">
-                      {['ID Blok', 'Tanggal', 'Produksi (ton)', 'Area (hektar)'].map((column, index) => (
+                      {["ID Blok", "Tanggal", "Produksi (ton)", "Area (hektar)"].map((column, index) => (
                         <div key={index} className="flex items-center gap-2 p-2 bg-teal-50 rounded-md">
                           <div className="w-2 h-2 bg-teal-600 rounded-full"></div>
                           <span className="text-sm font-medium text-gray-700">{column}</span>
@@ -103,7 +110,8 @@ export default function UpdatingPage() {
                       <div>
                         <p className="text-sm font-semibold text-yellow-800 mb-1">Pemberitahuan Kualitas Data</p>
                         <p className="text-xs text-yellow-700 leading-relaxed">
-                          Pastikan kualitas dan akurasi data sebelum mengunggah. Data yang tidak valid atau tidak konsisten dapat secara signifikan mempengaruhi akurasi prediksi AI dan kinerja sistem.
+                          Pastikan kualitas dan akurasi data sebelum mengunggah. Data yang tidak valid atau tidak
+                          konsisten dapat secara signifikan mempengaruhi akurasi prediksi AI dan kinerja sistem.
                         </p>
                       </div>
                     </div>
@@ -115,7 +123,8 @@ export default function UpdatingPage() {
                       <div>
                         <p className="text-sm font-semibold text-blue-800 mb-1">Keamanan & Privasi</p>
                         <p className="text-xs text-blue-700 leading-relaxed">
-                          Semua unggahan dienkripsi dan diproses dengan aman. Data Anda dilindungi dengan langkah-langkah keamanan tingkat enterprise.
+                          Semua unggahan dienkripsi dan diproses dengan aman. Data Anda dilindungi dengan
+                          langkah-langkah keamanan tingkat enterprise.
                         </p>
                       </div>
                     </div>
@@ -135,9 +144,7 @@ export default function UpdatingPage() {
                   <Clock className="h-5 w-5" />
                   Riwayat Unggah
                 </CardTitle>
-                <CardDescription className="text-sm mt-1">
-                  Lacak dan kelola unggahan data sebelumnya
-                </CardDescription>
+                <CardDescription className="text-sm mt-1">Lacak dan kelola unggahan data sebelumnya</CardDescription>
               </div>
               <Badge variant="outline" className="self-center md:self-start text-xs">
                 Terakhir diperbarui: 5 menit lalu

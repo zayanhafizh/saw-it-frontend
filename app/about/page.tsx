@@ -11,15 +11,16 @@ export default function AboutPage() {
         {/* Back Button */}
         <div className="flex items-center justify-between">
           <Link href="/">
-            <Button variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-50">
+            <Button
+              variant="outline"
+              className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 bg-transparent"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Kembali ke Beranda
             </Button>
           </Link>
           <Link href="/dashboard">
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
-              Kembali ke Dashboard
-            </Button>
+            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Kembali ke Dashboard</Button>
           </Link>
         </div>
 
@@ -34,18 +35,23 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="space-y-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-emerald-600 dark:text-emerald-400">
               Tentang Saw-It
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Merevolusi manajemen perkebunan kelapa sawit melalui analitik data cerdas, wawasan bertenaga AI, dan praktik berkelanjutan
+              Merevolusi manajemen perkebunan kelapa sawit melalui analitik data cerdas, wawasan bertenaga AI, dan
+              praktik berkelanjutan
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
               <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8">
                 <Globe className="mr-2 h-5 w-5" />
                 Pelajari Lebih Lanjut
               </Button>
-              <Button size="lg" variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-8">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-8 bg-transparent"
+              >
                 <Mail className="mr-2 h-5 w-5" />
                 Hubungi Kami
               </Button>
@@ -66,9 +72,9 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                Memberdayakan pengelola perkebunan kelapa sawit dengan teknologi terdepan yang mengoptimalkan produksi, meningkatkan 
-                keberlanjutan, dan mendorong pengambilan keputusan yang tepat melalui analitik data komprehensif dan solusi 
-                kecerdasan buatan.
+                Memberdayakan pengelola perkebunan kelapa sawit dengan teknologi terdepan yang mengoptimalkan produksi,
+                meningkatkan keberlanjutan, dan mendorong pengambilan keputusan yang tepat melalui analitik data
+                komprehensif dan solusi kecerdasan buatan.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Badge className="bg-emerald-200 text-emerald-800 border-emerald-300">Inovasi</Badge>
@@ -89,9 +95,9 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                Menjadi platform digital terdepan untuk manajemen perkebunan kelapa sawit berkelanjutan, berkontribusi pada 
-                peningkatan produktivitas sambil mempertahankan tanggung jawab lingkungan dan mendukung mata pencaharian 
-                komunitas petani di seluruh dunia.
+                Menjadi platform digital terdepan untuk manajemen perkebunan kelapa sawit berkelanjutan, berkontribusi
+                pada peningkatan produktivitas sambil mempertahankan tanggung jawab lingkungan dan mendukung mata
+                pencaharian komunitas petani di seluruh dunia.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Badge className="bg-teal-200 text-teal-800 border-teal-300">Kepemimpinan</Badge>
@@ -106,7 +112,7 @@ export default function AboutPage() {
         <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
           <CardHeader className="border-b border-gray-100">
             <div className="text-center">
-              <CardTitle className="text-2xl md:text-3xl bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              <CardTitle className="text-2xl md:text-3xl text-emerald-600 dark:text-emerald-400">
                 Fitur Platform
               </CardTitle>
               <CardDescription className="text-base md:text-lg mt-2">
@@ -120,37 +126,38 @@ export default function AboutPage() {
                 {
                   icon: Star,
                   title: "Analitik Dashboard",
-                  description: "Pemantauan produksi real-time dengan grafik interaktif dan papan peringkat komprehensif",
-                  color: "emerald"
+                  description:
+                    "Pemantauan produksi real-time dengan grafik interaktif dan papan peringkat komprehensif",
+                  color: "emerald",
                 },
                 {
                   icon: Target,
                   title: "Estimasi Produksi",
                   description: "Perkiraan bertenaga AI canggih dengan kemampuan filter dan pencarian yang canggih",
-                  color: "teal"
+                  color: "teal",
                 },
                 {
                   icon: Zap,
                   title: "Asisten Palm-AI",
                   description: "Chatbot cerdas yang memberikan wawasan instan dan rekomendasi yang dipersonalisasi",
-                  color: "cyan"
+                  color: "cyan",
                 },
                 {
                   icon: Shield,
                   title: "Manajemen Data",
                   description: "Unggahan dan pemrosesan data aman untuk analitik dan pelaporan yang akurat",
-                  color: "indigo"
-                }
+                  color: "indigo",
+                },
               ].map((feature, index) => (
                 <div key={index} className="group space-y-4 p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                  <div className={`p-3 bg-${feature.color}-100 rounded-xl w-fit group-hover:scale-110 transition-transform`}>
+                  <div
+                    className={`p-3 bg-${feature.color}-100 rounded-xl w-fit group-hover:scale-110 transition-transform`}
+                  >
                     <feature.icon className={`h-6 w-6 text-${feature.color}-600`} />
                   </div>
                   <div className="space-y-2">
                     <h3 className={`font-semibold text-${feature.color}-700 text-lg`}>{feature.title}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {feature.description}
-                    </p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -171,8 +178,8 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                Dibangun oleh tim ahli teknologi pertanian, ilmuwan data, dan insinyur perangkat lunak 
-                yang berdedikasi dan bersemangat tentang pertanian berkelanjutan dan inovasi digital.
+                Dibangun oleh tim ahli teknologi pertanian, ilmuwan data, dan insinyur perangkat lunak yang berdedikasi
+                dan bersemangat tentang pertanian berkelanjutan dan inovasi digital.
               </p>
               <div className="space-y-4">
                 <h4 className="font-semibold text-gray-900 text-lg">Nilai-nilai Inti</h4>
@@ -180,8 +187,8 @@ export default function AboutPage() {
                   {[
                     "Keberlanjutan & Tanggung Jawab Lingkungan",
                     "Pengambilan Keputusan Berbasis Data",
-                    "Desain & Pengalaman Berpusat pada Pengguna", 
-                    "Inovasi & Perbaikan Berkelanjutan"
+                    "Desain & Pengalaman Berpusat pada Pengguna",
+                    "Inovasi & Perbaikan Berkelanjutan",
                   ].map((value, index) => (
                     <div key={index} className="flex items-center gap-2 p-3 bg-white/70 rounded-lg">
                       <div className="w-2 h-2 bg-cyan-600 rounded-full"></div>
@@ -210,10 +217,20 @@ export default function AboutPage() {
                 <h4 className="font-semibold text-gray-900 text-lg">Teknologi</h4>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "Next.js", "TypeScript", "Tailwind CSS", "Integrasi AI/ML", 
-                    "Analitik Real-time", "Infrastruktur Cloud", "PostgreSQL", "Docker"
+                    "Next.js",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "Integrasi AI/ML",
+                    "Analitik Real-time",
+                    "Infrastruktur Cloud",
+                    "PostgreSQL",
+                    "Docker",
                   ].map((tech, index) => (
-                    <Badge key={index} variant="outline" className="text-sm px-3 py-1 hover:bg-indigo-50 transition-colors">
+                    <Badge
+                      key={index}
+                      variant="outline"
+                      className="text-sm px-3 py-1 hover:bg-indigo-50 transition-colors"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -228,7 +245,8 @@ export default function AboutPage() {
           <CardHeader className="border-b border-emerald-100 text-center">
             <CardTitle className="text-2xl md:text-3xl text-emerald-700">Hubungi Kami</CardTitle>
             <CardDescription className="text-base md:text-lg">
-              Siap mentransformasi manajemen perkebunan Anda? Hubungi kami untuk mempelajari lebih lanjut tentang solusi kami.
+              Siap mentransformasi manajemen perkebunan Anda? Hubungi kami untuk mempelajari lebih lanjut tentang solusi
+              kami.
             </CardDescription>
           </CardHeader>
           <CardContent className="p-6 md:p-8">
@@ -238,20 +256,20 @@ export default function AboutPage() {
                   icon: Mail,
                   title: "Email",
                   value: "info@saw-it.com",
-                  description: "Pertanyaan umum"
+                  description: "Pertanyaan umum",
                 },
                 {
                   icon: Phone,
                   title: "Dukungan",
                   value: "support@saw-it.com",
-                  description: "Bantuan teknis"
+                  description: "Bantuan teknis",
                 },
                 {
                   icon: Globe,
                   title: "Versi",
                   value: "v2.0.0 Beta",
-                  description: "Rilis saat ini"
-                }
+                  description: "Rilis saat ini",
+                },
               ].map((contact, index) => (
                 <div key={index} className="text-center group p-4 rounded-xl hover:bg-white/50 transition-colors">
                   <div className="flex justify-center mb-4">
@@ -265,7 +283,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-8 text-center">
               <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8">
                 <Mail className="mr-2 h-5 w-5" />

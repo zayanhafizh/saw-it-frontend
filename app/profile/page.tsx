@@ -14,7 +14,7 @@ export default function ProfilePage() {
         <div className="mb-6 md:mb-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                 Profil Pengguna
               </h1>
               <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
@@ -36,12 +36,10 @@ export default function ProfilePage() {
                 <div className="relative mx-auto mb-4">
                   <Avatar className="w-24 h-24 mx-auto">
                     <AvatarImage src="/placeholder-user.jpg" alt="Profile" />
-                    <AvatarFallback className="bg-emerald-100 text-emerald-700 text-2xl font-bold">
-                      JD
-                    </AvatarFallback>
+                    <AvatarFallback className="bg-emerald-100 text-emerald-700 text-2xl font-bold">JD</AvatarFallback>
                   </Avatar>
-                  <Button 
-                    size="sm" 
+                  <Button
+                    size="sm"
                     className="absolute bottom-0 right-0 rounded-full w-8 h-8 p-0 bg-emerald-600 hover:bg-emerald-700"
                   >
                     <Camera className="h-3 w-3" />
@@ -204,7 +202,9 @@ export default function ProfilePage() {
                           <p className="font-medium text-gray-900">Kata Sandi</p>
                           <p className="text-sm text-gray-600">Terakhir diubah 3 bulan lalu</p>
                         </div>
-                        <Button variant="outline" size="sm">Ubah</Button>
+                        <Button variant="outline" size="sm">
+                          Ubah
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -256,7 +256,9 @@ export default function ProfilePage() {
                           <p className="font-medium text-gray-900">Ekspor Data</p>
                           <p className="text-sm text-gray-600">Unduh semua data Anda</p>
                         </div>
-                        <Button variant="outline" size="sm">Unduh</Button>
+                        <Button variant="outline" size="sm">
+                          Unduh
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -277,7 +279,11 @@ export default function ProfilePage() {
                       <p className="font-medium text-gray-900">Nonaktifkan Akun</p>
                       <p className="text-sm text-gray-600">Nonaktifkan akun sementara</p>
                     </div>
-                    <Button variant="outline" size="sm" className="border-red-200 text-red-700 hover:bg-red-50">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-red-200 text-red-700 hover:bg-red-50 bg-transparent"
+                    >
                       Nonaktifkan
                     </Button>
                   </div>
@@ -286,7 +292,11 @@ export default function ProfilePage() {
                       <p className="font-medium text-gray-900">Hapus Akun</p>
                       <p className="text-sm text-gray-600">Hapus akun dan semua data secara permanen</p>
                     </div>
-                    <Button variant="outline" size="sm" className="border-red-300 text-red-800 hover:bg-red-100">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-red-300 text-red-800 hover:bg-red-100 bg-transparent"
+                    >
                       Hapus
                     </Button>
                   </div>

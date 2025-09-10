@@ -1,9 +1,6 @@
 "use client"
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { Line, LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts"
-import { TrendingUp } from "lucide-react"
 
 const productionData = [
   { month: "Jan", production: 2100, target: 2200, year: 2024 },
@@ -37,18 +34,35 @@ export function ProductionChart() {
         className="h-full"
       >
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={productionData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          <LineChart
+            data={productionData}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            className="transition-all duration-300 hover:scale-[1.02]"
+          >
             <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
             <XAxis dataKey="month" className="text-xs" tick={{ fontSize: 12 }} />
             <YAxis className="text-xs" tick={{ fontSize: 12 }} />
-            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartTooltip
+              content={<ChartTooltipContent />}
+              cursor={{ stroke: "#10b981", strokeWidth: 2, strokeDasharray: "5 5" }}
+              animationDuration={200}
+            />
             <Line
               type="monotone"
               dataKey="production"
               stroke="var(--color-production)"
               strokeWidth={3}
               dot={{ fill: "var(--color-production)", strokeWidth: 2, r: 4 }}
+              activeDot={{
+                r: 8,
+                fill: "var(--color-production)",
+                strokeWidth: 3,
+                stroke: "#fff",
+                className: "animate-pulse",
+              }}
               name="Produksi Aktual"
+              animationDuration={1500}
+              animationBegin={0}
             />
             <Line
               type="monotone"
@@ -57,7 +71,16 @@ export function ProductionChart() {
               strokeWidth={2}
               strokeDasharray="5 5"
               dot={{ fill: "var(--color-target)", strokeWidth: 2, r: 3 }}
+              activeDot={{
+                r: 6,
+                fill: "var(--color-target)",
+                strokeWidth: 2,
+                stroke: "#fff",
+                className: "animate-pulse",
+              }}
               name="Target"
+              animationDuration={1500}
+              animationBegin={300}
             />
           </LineChart>
         </ResponsiveContainer>
