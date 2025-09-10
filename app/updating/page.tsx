@@ -7,7 +7,7 @@ import { FileText, AlertCircle, Upload, Shield, Clock } from "lucide-react"
 
 export default function UpdatingPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="px-4 sm:px-6 lg:px-8 py-6 md:py-8 max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6 md:mb-8 text-center md:text-left">
@@ -16,17 +16,17 @@ export default function UpdatingPage() {
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                 Manajemen Data
               </h1>
-              <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl">
                 Unggah dan kelola data produksi untuk perkiraan dan analisis yang akurat dengan keamanan tingkat
                 enterprise
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
-              <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
+              <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-800 dark:text-emerald-200 dark:border-emerald-600 px-4 py-2">
                 <Upload className="w-4 h-4 mr-2" />
                 Pemrosesan Real-time
               </Badge>
-              <Badge variant="outline" className="self-center md:self-start px-4 py-2">
+              <Badge variant="outline" className="self-center md:self-start px-4 py-2 dark:border-gray-600 dark:text-gray-300">
                 <Shield className="w-4 h-4 mr-2" />
                 Unggah Aman
               </Badge>
@@ -43,73 +43,73 @@ export default function UpdatingPage() {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Upload Area - Takes 2 columns on xl screens */}
           <div className="xl:col-span-2">
-            <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
+            <Card className="border-0 shadow-xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
               <UploadArea />
             </Card>
           </div>
 
           {/* Guidelines */}
           <div className="xl:col-span-1">
-            <Card className="border-0 shadow-xl bg-gradient-to-br from-emerald-50 to-teal-50 h-full">
-              <CardHeader className="border-b border-emerald-100">
-                <CardTitle className="text-emerald-700 flex items-center gap-2">
-                  <div className="p-2 bg-emerald-600 rounded-lg">
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 h-full">
+              <CardHeader className="border-b border-emerald-100 dark:border-emerald-700">
+                <CardTitle className="text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
+                  <div className="p-2 bg-emerald-600 dark:bg-emerald-700 rounded-lg">
                     <FileText className="h-4 w-4 text-white" />
                   </div>
                   Panduan Unggah
                 </CardTitle>
-                <CardDescription>Informasi penting untuk pengunggahan data</CardDescription>
+                <CardDescription className="dark:text-gray-300">Informasi penting untuk pengunggahan data</CardDescription>
               </CardHeader>
               <CardContent className="p-4 md:p-6 space-y-6">
                 <div className="space-y-4">
-                  <div className="bg-white/70 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                      <FileText className="h-4 w-4 text-emerald-600" />
+                  <div className="bg-white/70 dark:bg-gray-800/50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
+                      <FileText className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                       Format yang Didukung
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
-                      <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
-                        <span className="text-sm font-medium text-gray-700">File CSV</span>
-                        <Badge variant="outline" className="text-xs">
+                      <div className="flex items-center justify-between p-2 bg-emerald-50 dark:bg-emerald-900/30 rounded-md">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">File CSV</span>
+                        <Badge variant="outline" className="text-xs dark:border-gray-600 dark:text-gray-300">
                           .csv
                         </Badge>
                       </div>
-                      <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
-                        <span className="text-sm font-medium text-gray-700">File Excel</span>
-                        <Badge variant="outline" className="text-xs">
+                      <div className="flex items-center justify-between p-2 bg-emerald-50 dark:bg-emerald-900/30 rounded-md">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">File Excel</span>
+                        <Badge variant="outline" className="text-xs dark:border-gray-600 dark:text-gray-300">
                           .xlsx, .xls
                         </Badge>
                       </div>
-                      <div className="flex items-center justify-between p-2 bg-emerald-50 rounded-md">
-                        <span className="text-sm font-medium text-gray-700">File JSON</span>
-                        <Badge variant="outline" className="text-xs">
+                      <div className="flex items-center justify-between p-2 bg-emerald-50 dark:bg-emerald-900/30 rounded-md">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">File JSON</span>
+                        <Badge variant="outline" className="text-xs dark:border-gray-600 dark:text-gray-300">
                           .json
                         </Badge>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/70 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-teal-600" />
+                  <div className="bg-white/70 dark:bg-gray-800/50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-teal-600 dark:text-teal-400" />
                       Kolom yang Diperlukan
                     </h4>
                     <div className="space-y-2">
                       {["ID Blok", "Tanggal", "Produksi (ton)", "Area (hektar)"].map((column, index) => (
-                        <div key={index} className="flex items-center gap-2 p-2 bg-teal-50 rounded-md">
-                          <div className="w-2 h-2 bg-teal-600 rounded-full"></div>
-                          <span className="text-sm font-medium text-gray-700">{column}</span>
+                        <div key={index} className="flex items-center gap-2 p-2 bg-teal-50 dark:bg-teal-900/30 rounded-md">
+                          <div className="w-2 h-2 bg-teal-600 dark:bg-teal-400 rounded-full"></div>
+                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{column}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-4">
+                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-200 dark:border-yellow-700 rounded-lg p-4">
                     <div className="flex gap-3">
-                      <AlertCircle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                      <AlertCircle className="h-5 w-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-semibold text-yellow-800 mb-1">Pemberitahuan Kualitas Data</p>
-                        <p className="text-xs text-yellow-700 leading-relaxed">
+                        <p className="text-sm font-semibold text-yellow-800 dark:text-yellow-400 mb-1">Pemberitahuan Kualitas Data</p>
+                        <p className="text-xs text-yellow-700 dark:text-yellow-300 leading-relaxed">
                           Pastikan kualitas dan akurasi data sebelum mengunggah. Data yang tidak valid atau tidak
                           konsisten dapat secara signifikan mempengaruhi akurasi prediksi AI dan kinerja sistem.
                         </p>
@@ -117,12 +117,12 @@ export default function UpdatingPage() {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-4">
+                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4">
                     <div className="flex gap-3">
-                      <Shield className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Shield className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-semibold text-blue-800 mb-1">Keamanan & Privasi</p>
-                        <p className="text-xs text-blue-700 leading-relaxed">
+                        <p className="text-sm font-semibold text-blue-800 dark:text-blue-400 mb-1">Keamanan & Privasi</p>
+                        <p className="text-xs text-blue-700 dark:text-blue-300 leading-relaxed">
                           Semua unggahan dienkripsi dan diproses dengan aman. Data Anda dilindungi dengan
                           langkah-langkah keamanan tingkat enterprise.
                         </p>
@@ -136,17 +136,17 @@ export default function UpdatingPage() {
         </div>
 
         {/* Upload History */}
-        <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
-          <CardHeader className="border-b border-gray-100">
+        <Card className="border-0 shadow-xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
+          <CardHeader className="border-b border-gray-100 dark:border-gray-700">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <CardTitle className="text-lg md:text-xl text-emerald-700 flex items-center gap-2">
+                <CardTitle className="text-lg md:text-xl text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
                   <Clock className="h-5 w-5" />
                   Riwayat Unggah
                 </CardTitle>
-                <CardDescription className="text-sm mt-1">Lacak dan kelola unggahan data sebelumnya</CardDescription>
+                <CardDescription className="text-sm mt-1 dark:text-gray-300">Lacak dan kelola unggahan data sebelumnya</CardDescription>
               </div>
-              <Badge variant="outline" className="self-center md:self-start text-xs">
+              <Badge variant="outline" className="self-center md:self-start text-xs dark:border-gray-600 dark:text-gray-300">
                 Terakhir diperbarui: 5 menit lalu
               </Badge>
             </div>

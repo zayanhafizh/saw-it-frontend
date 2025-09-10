@@ -8,7 +8,7 @@ import { User, Mail, Phone, MapPin, Calendar, Settings, Shield, Bell, Edit, Save
 
 export default function ProfilePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="px-4 sm:px-6 lg:px-8 py-6 md:py-8 max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6 md:mb-8 text-center md:text-left">
@@ -17,11 +17,11 @@ export default function ProfilePage() {
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                 Profil Pengguna
               </h1>
-              <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl">
                 Kelola informasi profil dan pengaturan akun Anda
               </p>
             </div>
-            <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
+            <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-800 dark:text-emerald-200 dark:border-emerald-600 px-4 py-2">
               <Shield className="w-4 h-4 mr-2" />
               Akun Terverifikasi
             </Badge>
@@ -31,51 +31,51 @@ export default function ProfilePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Profile Summary */}
           <div className="lg:col-span-1">
-            <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
-              <CardHeader className="text-center border-b border-gray-100">
+            <Card className="border-0 shadow-xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
+              <CardHeader className="text-center border-b border-gray-100 dark:border-gray-700">
                 <div className="relative mx-auto mb-4">
                   <Avatar className="w-24 h-24 mx-auto">
                     <AvatarImage src="/placeholder-user.jpg" alt="Profile" />
-                    <AvatarFallback className="bg-emerald-100 text-emerald-700 text-2xl font-bold">JD</AvatarFallback>
+                    <AvatarFallback className="bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 text-2xl font-bold">JD</AvatarFallback>
                   </Avatar>
                   <Button
                     size="sm"
-                    className="absolute bottom-0 right-0 rounded-full w-8 h-8 p-0 bg-emerald-600 hover:bg-emerald-700"
+                    className="absolute bottom-0 right-0 rounded-full w-8 h-8 p-0 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-800"
                   >
                     <Camera className="h-3 w-3" />
                   </Button>
                 </div>
-                <CardTitle className="text-emerald-700">John Doe</CardTitle>
-                <CardDescription>Administrator Perkebunan</CardDescription>
+                <CardTitle className="text-emerald-700 dark:text-emerald-400">John Doe</CardTitle>
+                <CardDescription className="dark:text-gray-300">Administrator Perkebunan</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 p-3 bg-emerald-50 rounded-lg">
-                    <Mail className="h-4 w-4 text-emerald-600" />
+                  <div className="flex items-center gap-3 p-3 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg">
+                    <Mail className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Email</p>
-                      <p className="text-sm text-gray-600">john.doe@sawit.com</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Email</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">john.doe@sawit.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 bg-teal-50 rounded-lg">
-                    <Phone className="h-4 w-4 text-teal-600" />
+                  <div className="flex items-center gap-3 p-3 bg-teal-50 dark:bg-teal-900/30 rounded-lg">
+                    <Phone className="h-4 w-4 text-teal-600 dark:text-teal-400" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Telepon</p>
-                      <p className="text-sm text-gray-600">+62 812-3456-7890</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Telepon</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">+62 812-3456-7890</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 bg-cyan-50 rounded-lg">
-                    <MapPin className="h-4 w-4 text-cyan-600" />
+                  <div className="flex items-center gap-3 p-3 bg-cyan-50 dark:bg-cyan-900/30 rounded-lg">
+                    <MapPin className="h-4 w-4 text-cyan-600 dark:text-cyan-400" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Lokasi</p>
-                      <p className="text-sm text-gray-600">Riau, Indonesia</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Lokasi</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Riau, Indonesia</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 p-3 bg-indigo-50 rounded-lg">
-                    <Calendar className="h-4 w-4 text-indigo-600" />
+                  <div className="flex items-center gap-3 p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg">
+                    <Calendar className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Bergabung</p>
-                      <p className="text-sm text-gray-600">Januari 2024</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Bergabung</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Januari 2024</p>
                     </div>
                   </div>
                 </div>
@@ -83,9 +83,9 @@ export default function ProfilePage() {
             </Card>
 
             {/* Quick Stats */}
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-teal-50 mt-6">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 mt-6">
               <CardHeader>
-                <CardTitle className="text-emerald-700 flex items-center gap-2">
+                <CardTitle className="text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
                   <Settings className="h-5 w-5" />
                   Statistik Aktivitas
                 </CardTitle>
@@ -93,20 +93,20 @@ export default function ProfilePage() {
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Login Terakhir:</span>
-                    <span className="text-sm font-medium">Hari ini, 09:15</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Login Terakhir:</span>
+                    <span className="text-sm font-medium dark:text-gray-200">Hari ini, 09:15</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Total Sesi:</span>
-                    <span className="text-sm font-medium">156 kali</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Total Sesi:</span>
+                    <span className="text-sm font-medium dark:text-gray-200">156 kali</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Data Diunggah:</span>
-                    <span className="text-sm font-medium">42 file</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Data Diunggah:</span>
+                    <span className="text-sm font-medium dark:text-gray-200">42 file</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Status Akun:</span>
-                    <Badge className="bg-green-100 text-green-800 border-green-200">Aktif</Badge>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Status Akun:</span>
+                    <Badge className="bg-green-100 text-green-800 border-green-200 dark:bg-green-800 dark:text-green-200 dark:border-green-600">Aktif</Badge>
                   </div>
                 </div>
               </CardContent>
@@ -116,17 +116,17 @@ export default function ProfilePage() {
           {/* Profile Details & Settings */}
           <div className="lg:col-span-2 space-y-6">
             {/* Personal Information */}
-            <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
-              <CardHeader className="border-b border-gray-100">
+            <Card className="border-0 shadow-xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
+              <CardHeader className="border-b border-gray-100 dark:border-gray-700">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-emerald-700 flex items-center gap-2">
+                    <CardTitle className="text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
                       <User className="h-5 w-5" />
                       Informasi Pribadi
                     </CardTitle>
-                    <CardDescription>Kelola informasi profil Anda</CardDescription>
+                    <CardDescription className="dark:text-gray-300">Kelola informasi profil Anda</CardDescription>
                   </div>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
                     <Edit className="h-4 w-4 mr-2" />
                     Edit
                   </Button>
@@ -135,36 +135,36 @@ export default function ProfilePage() {
               <CardContent className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">Nama Depan</Label>
-                    <Input id="firstName" defaultValue="John" />
+                    <Label htmlFor="firstName" className="dark:text-gray-300">Nama Depan</Label>
+                    <Input id="firstName" defaultValue="John" className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Nama Belakang</Label>
-                    <Input id="lastName" defaultValue="Doe" />
+                    <Label htmlFor="lastName" className="dark:text-gray-300">Nama Belakang</Label>
+                    <Input id="lastName" defaultValue="Doe" className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" defaultValue="john.doe@sawit.com" />
+                    <Label htmlFor="email" className="dark:text-gray-300">Email</Label>
+                    <Input id="email" type="email" defaultValue="john.doe@sawit.com" className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Nomor Telepon</Label>
-                    <Input id="phone" defaultValue="+62 812-3456-7890" />
+                    <Label htmlFor="phone" className="dark:text-gray-300">Nomor Telepon</Label>
+                    <Input id="phone" defaultValue="+62 812-3456-7890" className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="position">Posisi</Label>
-                    <Input id="position" defaultValue="Administrator Perkebunan" />
+                    <Label htmlFor="position" className="dark:text-gray-300">Posisi</Label>
+                    <Input id="position" defaultValue="Administrator Perkebunan" className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="company">Perusahaan</Label>
-                    <Input id="company" defaultValue="PT Sawit Makmur" />
+                    <Label htmlFor="company" className="dark:text-gray-300">Perusahaan</Label>
+                    <Input id="company" defaultValue="PT Sawit Makmur" className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" />
                   </div>
                   <div className="space-y-2 md:col-span-2">
-                    <Label htmlFor="address">Alamat</Label>
-                    <Input id="address" defaultValue="Jl. Sawit Raya No. 123, Riau, Indonesia" />
+                    <Label htmlFor="address" className="dark:text-gray-300">Alamat</Label>
+                    <Input id="address" defaultValue="Jl. Sawit Raya No. 123, Riau, Indonesia" className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" />
                   </div>
                 </div>
                 <div className="flex justify-end mt-6">
-                  <Button className="bg-emerald-600 hover:bg-emerald-700">
+                  <Button className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-800">
                     <Save className="h-4 w-4 mr-2" />
                     Simpan Perubahan
                   </Button>
@@ -173,36 +173,36 @@ export default function ProfilePage() {
             </Card>
 
             {/* Account Settings */}
-            <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm">
-              <CardHeader className="border-b border-gray-100">
-                <CardTitle className="text-emerald-700 flex items-center gap-2">
+            <Card className="border-0 shadow-xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
+              <CardHeader className="border-b border-gray-100 dark:border-gray-700">
+                <CardTitle className="text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
                   <Settings className="h-5 w-5" />
                   Pengaturan Akun
                 </CardTitle>
-                <CardDescription>Kelola preferensi dan keamanan akun Anda</CardDescription>
+                <CardDescription className="dark:text-gray-300">Kelola preferensi dan keamanan akun Anda</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-6">
                   {/* Security Settings */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <Shield className="h-4 w-4 text-emerald-600" />
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+                      <Shield className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                       Keamanan
                     </h4>
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Autentikasi Dua Faktor</p>
-                          <p className="text-sm text-gray-600">Tingkatkan keamanan akun dengan 2FA</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Autentikasi Dua Faktor</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Tingkatkan keamanan akun dengan 2FA</p>
                         </div>
-                        <Badge className="bg-green-100 text-green-800">Aktif</Badge>
+                        <Badge className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200">Aktif</Badge>
                       </div>
-                      <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Kata Sandi</p>
-                          <p className="text-sm text-gray-600">Terakhir diubah 3 bulan lalu</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Kata Sandi</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Terakhir diubah 3 bulan lalu</p>
                         </div>
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600">
                           Ubah
                         </Button>
                       </div>
@@ -211,52 +211,52 @@ export default function ProfilePage() {
 
                   {/* Notification Settings */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <Bell className="h-4 w-4 text-emerald-600" />
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+                      <Bell className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                       Notifikasi
                     </h4>
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Email Notifikasi</p>
-                          <p className="text-sm text-gray-600">Terima pembaruan via email</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Email Notifikasi</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Terima pembaruan via email</p>
                         </div>
-                        <Badge className="bg-green-100 text-green-800">Aktif</Badge>
+                        <Badge className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200">Aktif</Badge>
                       </div>
-                      <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Notifikasi Push</p>
-                          <p className="text-sm text-gray-600">Notifikasi real-time di browser</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Notifikasi Push</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Notifikasi real-time di browser</p>
                         </div>
-                        <Badge className="bg-gray-100 text-gray-800">Nonaktif</Badge>
+                        <Badge className="bg-gray-100 text-gray-800 dark:bg-gray-600 dark:text-gray-300">Nonaktif</Badge>
                       </div>
-                      <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Laporan Mingguan</p>
-                          <p className="text-sm text-gray-600">Ringkasan kinerja setiap minggu</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Laporan Mingguan</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Ringkasan kinerja setiap minggu</p>
                         </div>
-                        <Badge className="bg-green-100 text-green-800">Aktif</Badge>
+                        <Badge className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200">Aktif</Badge>
                       </div>
                     </div>
                   </div>
 
                   {/* Privacy Settings */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-4">Privasi & Data</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-4">Privasi & Data</h4>
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Profil Publik</p>
-                          <p className="text-sm text-gray-600">Tampilkan profil di direktori</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Profil Publik</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Tampilkan profil di direktori</p>
                         </div>
-                        <Badge className="bg-gray-100 text-gray-800">Nonaktif</Badge>
+                        <Badge className="bg-gray-100 text-gray-800 dark:bg-gray-600 dark:text-gray-300">Nonaktif</Badge>
                       </div>
-                      <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                      <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                         <div>
-                          <p className="font-medium text-gray-900">Ekspor Data</p>
-                          <p className="text-sm text-gray-600">Unduh semua data Anda</p>
+                          <p className="font-medium text-gray-900 dark:text-gray-100">Ekspor Data</p>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Unduh semua data Anda</p>
                         </div>
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600">
                           Unduh
                         </Button>
                       </div>
@@ -267,35 +267,35 @@ export default function ProfilePage() {
             </Card>
 
             {/* Danger Zone */}
-            <Card className="border-0 shadow-xl bg-gradient-to-br from-red-50 to-red-100 border-red-200">
-              <CardHeader className="border-b border-red-200">
-                <CardTitle className="text-red-700">Zona Berbahaya</CardTitle>
-                <CardDescription>Tindakan yang tidak dapat dibatalkan</CardDescription>
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800">
+              <CardHeader className="border-b border-red-200 dark:border-red-700">
+                <CardTitle className="text-red-700 dark:text-red-400">Zona Berbahaya</CardTitle>
+                <CardDescription className="dark:text-red-300">Tindakan yang tidak dapat dibatalkan</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-white/70 rounded-lg border border-red-200">
+                  <div className="flex items-center justify-between p-4 bg-white/70 dark:bg-gray-800/50 rounded-lg border border-red-200 dark:border-red-700">
                     <div>
-                      <p className="font-medium text-gray-900">Nonaktifkan Akun</p>
-                      <p className="text-sm text-gray-600">Nonaktifkan akun sementara</p>
+                      <p className="font-medium text-gray-900 dark:text-gray-100">Nonaktifkan Akun</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Nonaktifkan akun sementara</p>
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      className="border-red-200 text-red-700 hover:bg-red-50 bg-transparent"
+                      className="border-red-200 text-red-700 hover:bg-red-50 bg-transparent dark:border-red-600 dark:text-red-400 dark:hover:bg-red-900/20"
                     >
                       Nonaktifkan
                     </Button>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-white/70 rounded-lg border border-red-200">
+                  <div className="flex items-center justify-between p-4 bg-white/70 dark:bg-gray-800/50 rounded-lg border border-red-200 dark:border-red-700">
                     <div>
-                      <p className="font-medium text-gray-900">Hapus Akun</p>
-                      <p className="text-sm text-gray-600">Hapus akun dan semua data secara permanen</p>
+                      <p className="font-medium text-gray-900 dark:text-gray-100">Hapus Akun</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Hapus akun dan semua data secara permanen</p>
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      className="border-red-300 text-red-800 hover:bg-red-100 bg-transparent"
+                      className="border-red-300 text-red-800 hover:bg-red-100 bg-transparent dark:border-red-500 dark:text-red-300 dark:hover:bg-red-900/30"
                     >
                       Hapus
                     </Button>

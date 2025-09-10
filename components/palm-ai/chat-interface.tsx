@@ -90,26 +90,26 @@ export function ChatInterface() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="border-b border-emerald-200 p-4 bg-white">
+      <div className="border-b border-emerald-200 dark:border-emerald-700 p-4 bg-white dark:bg-gray-800">
         <div className="flex items-center gap-3">
-          <Avatar className="h-8 w-8 bg-emerald-600">
+          <Avatar className="h-8 w-8 bg-emerald-600 dark:bg-emerald-700">
             <AvatarFallback className="text-white">
               <Bot className="h-4 w-4" />
             </AvatarFallback>
           </Avatar>
           <div>
-            <h3 className="font-semibold text-emerald-900">Asisten Palm-AI</h3>
-            <p className="text-sm text-emerald-600">Online • Siap membantu</p>
+            <h3 className="font-semibold text-emerald-900 dark:text-emerald-100">Asisten Palm-AI</h3>
+            <p className="text-sm text-emerald-600 dark:text-emerald-400">Online • Siap membantu</p>
           </div>
         </div>
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-900">
         {messages.map((message) => (
           <div key={message.id} className={`flex gap-3 ${message.sender === "user" ? "justify-end" : "justify-start"}`}>
             {message.sender === "ai" && (
-              <Avatar className="h-8 w-8 bg-emerald-600 flex-shrink-0">
+              <Avatar className="h-8 w-8 bg-emerald-600 dark:bg-emerald-700 flex-shrink-0">
                 <AvatarFallback className="text-white">
                   <Bot className="h-4 w-4" />
                 </AvatarFallback>
@@ -120,28 +120,28 @@ export function ChatInterface() {
               <Card
                 className={`p-3 ${
                   message.sender === "user"
-                    ? "bg-emerald-600 text-white border-emerald-600"
-                    : "bg-white border-emerald-200"
+                    ? "bg-emerald-600 dark:bg-emerald-700 text-white border-emerald-600 dark:border-emerald-700"
+                    : "bg-white dark:bg-gray-800 border-emerald-200 dark:border-emerald-700 dark:text-gray-100"
                 }`}
               >
                 <p className="text-sm leading-relaxed">{message.content}</p>
               </Card>
 
               <div
-                className={`flex items-center gap-2 mt-2 text-xs text-gray-500 ${
+                className={`flex items-center gap-2 mt-2 text-xs text-gray-500 dark:text-gray-400 ${
                   message.sender === "user" ? "justify-end" : "justify-start"
                 }`}
               >
                 <span>{message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
                 {message.sender === "ai" && (
                   <div className="flex gap-1">
-                    <Button size="sm" variant="ghost" className="h-6 w-6 p-0 hover:bg-emerald-100">
+                    <Button size="sm" variant="ghost" className="h-6 w-6 p-0 hover:bg-emerald-100 dark:hover:bg-emerald-900/30">
                       <Copy className="h-3 w-3" />
                     </Button>
-                    <Button size="sm" variant="ghost" className="h-6 w-6 p-0 hover:bg-emerald-100">
+                    <Button size="sm" variant="ghost" className="h-6 w-6 p-0 hover:bg-emerald-100 dark:hover:bg-emerald-900/30">
                       <ThumbsUp className="h-3 w-3" />
                     </Button>
-                    <Button size="sm" variant="ghost" className="h-6 w-6 p-0 hover:bg-emerald-100">
+                    <Button size="sm" variant="ghost" className="h-6 w-6 p-0 hover:bg-emerald-100 dark:hover:bg-emerald-900/30">
                       <ThumbsDown className="h-3 w-3" />
                     </Button>
                   </div>
@@ -150,7 +150,7 @@ export function ChatInterface() {
             </div>
 
             {message.sender === "user" && (
-              <Avatar className="h-8 w-8 bg-gray-600 flex-shrink-0">
+              <Avatar className="h-8 w-8 bg-gray-600 dark:bg-gray-500 flex-shrink-0">
                 <AvatarFallback className="text-white">
                   <User className="h-4 w-4" />
                 </AvatarFallback>
@@ -161,20 +161,20 @@ export function ChatInterface() {
 
         {isLoading && (
           <div className="flex gap-3 justify-start">
-            <Avatar className="h-8 w-8 bg-emerald-600 flex-shrink-0">
+            <Avatar className="h-8 w-8 bg-emerald-600 dark:bg-emerald-700 flex-shrink-0">
               <AvatarFallback className="text-white">
                 <Bot className="h-4 w-4" />
               </AvatarFallback>
             </Avatar>
-            <Card className="p-3 bg-white border-emerald-200">
+            <Card className="p-3 bg-white dark:bg-gray-800 border-emerald-200 dark:border-emerald-700">
               <div className="flex gap-1">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-emerald-400 dark:bg-emerald-500 rounded-full animate-bounce"></div>
                 <div
-                  className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce"
+                  className="w-2 h-2 bg-emerald-400 dark:bg-emerald-500 rounded-full animate-bounce"
                   style={{ animationDelay: "0.1s" }}
                 ></div>
                 <div
-                  className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce"
+                  className="w-2 h-2 bg-emerald-400 dark:bg-emerald-500 rounded-full animate-bounce"
                   style={{ animationDelay: "0.2s" }}
                 ></div>
               </div>
@@ -184,25 +184,25 @@ export function ChatInterface() {
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-emerald-200 p-4 bg-white">
+      <div className="border-t border-emerald-200 dark:border-emerald-700 p-4 bg-white dark:bg-gray-800">
         <div className="flex gap-2">
           <Input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Tanyakan kepada Palm-AI tentang produksi, kesehatan tanaman, atau optimisasi..."
-            className="flex-1 border-emerald-200 focus:border-emerald-400"
+            className="flex-1 border-emerald-200 dark:border-emerald-700 focus:border-emerald-400 dark:focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100"
             disabled={isLoading}
           />
           <Button
             onClick={handleSendMessage}
             disabled={!inputValue.trim() || isLoading}
-            className="bg-emerald-600 hover:bg-emerald-700"
+            className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-800"
           >
             <Send className="h-4 w-4" />
           </Button>
         </div>
-        <p className="text-xs text-gray-500 mt-2">
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
           Palm-AI dapat membuat kesalahan. Harap verifikasi informasi penting dengan ahli pertanian.
         </p>
       </div>

@@ -111,72 +111,72 @@ export function UploadArea() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "success":
-        return <CheckCircle className="h-4 w-4 text-emerald-600" />
+        return <CheckCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
       case "error":
-        return <AlertCircle className="h-4 w-4 text-red-600" />
+        return <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
       case "uploading":
-        return <div className="h-4 w-4 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
+        return <div className="h-4 w-4 border-2 border-emerald-600 dark:border-emerald-400 border-t-transparent rounded-full animate-spin" />
       default:
-        return <FileText className="h-4 w-4 text-gray-400" />
+        return <FileText className="h-4 w-4 text-gray-400 dark:text-gray-500" />
     }
   }
 
   return (
-    <Card className="border-emerald-200">
+    <Card className="border-emerald-200 dark:border-emerald-700">
       <CardHeader>
-        <CardTitle className="text-emerald-700 flex items-center gap-2">
+        <CardTitle className="text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
           <Upload className="h-5 w-5" />
           Unggah Data Produksi
         </CardTitle>
-        <CardDescription>Unggah file CSV, Excel, atau JSON yang berisi data produksi</CardDescription>
+        <CardDescription className="dark:text-gray-300">Unggah file CSV, Excel, atau JSON yang berisi data produksi</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Upload Metadata */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <Label htmlFor="dataType">Jenis Data</Label>
+            <Label htmlFor="dataType" className="dark:text-gray-300">Jenis Data</Label>
             <Select
               value={uploadMetadata.dataType}
               onValueChange={(value) => setUploadMetadata((prev) => ({ ...prev, dataType: value }))}
             >
-              <SelectTrigger className="border-emerald-200">
+              <SelectTrigger className="border-emerald-200 dark:border-emerald-700 dark:bg-gray-700 dark:text-gray-100">
                 <SelectValue placeholder="Pilih jenis data" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="production">Data Produksi</SelectItem>
-                <SelectItem value="harvest">Catatan Panen</SelectItem>
-                <SelectItem value="maintenance">Log Pemeliharaan</SelectItem>
-                <SelectItem value="weather">Data Cuaca</SelectItem>
+              <SelectContent className="dark:bg-gray-800 dark:border-emerald-700">
+                <SelectItem value="production" className="dark:text-gray-100 dark:hover:bg-gray-700">Data Produksi</SelectItem>
+                <SelectItem value="harvest" className="dark:text-gray-100 dark:hover:bg-gray-700">Catatan Panen</SelectItem>
+                <SelectItem value="maintenance" className="dark:text-gray-100 dark:hover:bg-gray-700">Log Pemeliharaan</SelectItem>
+                <SelectItem value="weather" className="dark:text-gray-100 dark:hover:bg-gray-700">Data Cuaca</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <Label htmlFor="period">Periode</Label>
+            <Label htmlFor="period" className="dark:text-gray-300">Periode</Label>
             <Select
               value={uploadMetadata.period}
               onValueChange={(value) => setUploadMetadata((prev) => ({ ...prev, period: value }))}
             >
-              <SelectTrigger className="border-emerald-200">
+              <SelectTrigger className="border-emerald-200 dark:border-emerald-700 dark:bg-gray-700 dark:text-gray-100">
                 <SelectValue placeholder="Pilih periode" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="daily">Harian</SelectItem>
-                <SelectItem value="weekly">Mingguan</SelectItem>
-                <SelectItem value="monthly">Bulanan</SelectItem>
-                <SelectItem value="quarterly">Triwulanan</SelectItem>
+              <SelectContent className="dark:bg-gray-800 dark:border-emerald-700">
+                <SelectItem value="daily" className="dark:text-gray-100 dark:hover:bg-gray-700">Harian</SelectItem>
+                <SelectItem value="weekly" className="dark:text-gray-100 dark:hover:bg-gray-700">Mingguan</SelectItem>
+                <SelectItem value="monthly" className="dark:text-gray-100 dark:hover:bg-gray-700">Bulanan</SelectItem>
+                <SelectItem value="quarterly" className="dark:text-gray-100 dark:hover:bg-gray-700">Triwulanan</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <Label htmlFor="description">Deskripsi</Label>
+            <Label htmlFor="description" className="dark:text-gray-300">Deskripsi</Label>
             <Input
               id="description"
               placeholder="Deskripsi singkat"
               value={uploadMetadata.description}
               onChange={(e) => setUploadMetadata((prev) => ({ ...prev, description: e.target.value }))}
-              className="border-emerald-200"
+              className="border-emerald-200 dark:border-emerald-700 dark:bg-gray-700 dark:text-gray-100 dark:placeholder:text-gray-400"
             />
           </div>
         </div>
@@ -185,16 +185,16 @@ export function UploadArea() {
         <div
           className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
             isDragOver
-              ? "border-emerald-400 bg-emerald-50"
-              : "border-emerald-200 hover:border-emerald-300 hover:bg-emerald-50/50"
+              ? "border-emerald-400 dark:border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20"
+              : "border-emerald-200 dark:border-emerald-700 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/10"
           }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
         >
-          <Upload className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 mb-2">Seret file ke sini atau klik untuk menjelajah</h3>
-          <p className="text-gray-600 mb-4">Mendukung file CSV, Excel (.xlsx, .xls), dan JSON hingga 10MB</p>
+          <Upload className="h-12 w-12 text-emerald-400 dark:text-emerald-500 mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Seret file ke sini atau klik untuk menjelajah</h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">Mendukung file CSV, Excel (.xlsx, .xls), dan JSON hingga 10MB</p>
           <input
             type="file"
             multiple
@@ -206,7 +206,7 @@ export function UploadArea() {
           <Button
             asChild
             variant="outline"
-            className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 bg-transparent"
+            className="border-emerald-200 dark:border-emerald-700 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 bg-transparent"
           >
             <label htmlFor="file-upload" className="cursor-pointer">
               Pilih File
@@ -218,11 +218,11 @@ export function UploadArea() {
         {files.length > 0 && (
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h4 className="font-medium text-gray-900">File Terpilih ({files.length})</h4>
+              <h4 className="font-medium text-gray-900 dark:text-gray-100">File Terpilih ({files.length})</h4>
               <Button
                 onClick={uploadAllFiles}
                 disabled={files.every((f) => f.status !== "pending")}
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-800"
               >
                 Unggah Semua File
               </Button>
@@ -230,11 +230,11 @@ export function UploadArea() {
 
             <div className="space-y-2">
               {files.map((uploadFile) => (
-                <div key={uploadFile.id} className="flex items-center gap-3 p-3 border border-emerald-200 rounded-lg">
+                <div key={uploadFile.id} className="flex items-center gap-3 p-3 border border-emerald-200 dark:border-emerald-700 dark:bg-gray-800/50 rounded-lg">
                   <div className="text-2xl">{getFileIcon(uploadFile.file.name)}</div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900 truncate">{uploadFile.file.name}</p>
-                    <p className="text-sm text-gray-600">{(uploadFile.file.size / 1024 / 1024).toFixed(2)} MB</p>
+                    <p className="font-medium text-gray-900 dark:text-gray-100 truncate">{uploadFile.file.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{(uploadFile.file.size / 1024 / 1024).toFixed(2)} MB</p>
                     {uploadFile.status === "uploading" && <Progress value={uploadFile.progress} className="mt-2 h-2" />}
                   </div>
                   <div className="flex items-center gap-2">
@@ -243,7 +243,7 @@ export function UploadArea() {
                       <Button
                         size="sm"
                         onClick={() => simulateUpload(uploadFile.id)}
-                        className="bg-emerald-600 hover:bg-emerald-700"
+                        className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-800"
                       >
                         Unggah
                       </Button>
@@ -252,7 +252,7 @@ export function UploadArea() {
                       size="sm"
                       variant="ghost"
                       onClick={() => removeFile(uploadFile.id)}
-                      className="h-8 w-8 p-0 hover:bg-red-100"
+                      className="h-8 w-8 p-0 hover:bg-red-100 dark:hover:bg-red-900/30"
                     >
                       <X className="h-4 w-4" />
                     </Button>
