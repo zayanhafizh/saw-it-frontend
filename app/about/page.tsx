@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Leaf, Target, Users, Award, Mail, Phone, Globe, Star, Zap, Shield, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function AboutPage() {
   return (
@@ -28,10 +29,16 @@ export default function AboutPage() {
         <div className="text-center space-y-6 relative">
           <div className="flex justify-center">
             <div className="relative">
-              <div className="flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-2xl">
-                <Leaf className="h-10 w-10 md:h-12 md:w-12 text-white" />
+              <div className="flex h-28 w-28 md:h-32 md:w-32 lg:h-36 lg:w-36 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-2xl p-2 md:p-3 hover:scale-105 transition-transform duration-300">
+                <Image
+                  src="/saw-it-logo.png"
+                  alt="Saw-It Logo"
+                  width={100}
+                  height={100}
+                  className="h-24 w-24 md:h-26 md:w-26 lg:h-30 lg:w-30 object-contain drop-shadow-lg"
+                />
               </div>
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-teal-500 rounded-full animate-pulse"></div>
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-teal-500 rounded-full animate-pulse shadow-lg"></div>
             </div>
           </div>
           <div className="space-y-4">

@@ -21,40 +21,40 @@ export function EstimateFilters() {
 
   const years = ["2024", "2025", "2026"]
   const months = [
-    "January",
-    "February",
-    "March",
+    "Januari",
+    "Februari",
+    "Maret",
     "April",
-    "May",
-    "June",
-    "July",
-    "August",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
     "September",
-    "October",
+    "Oktober",
     "November",
-    "December",
+    "Desember",
   ]
   const blocks = [
-    "Block A-01",
-    "Block A-02",
-    "Block A-03",
-    "Block A-04",
-    "Block A-05",
-    "Block B-01",
-    "Block B-02",
-    "Block B-03",
-    "Block B-04",
-    "Block B-05",
-    "Block C-01",
-    "Block C-02",
-    "Block C-03",
-    "Block C-04",
-    "Block C-05",
-    "Block D-01",
-    "Block D-02",
-    "Block D-03",
-    "Block D-04",
-    "Block D-05",
+    "Blok A-01",
+    "Blok A-02",
+    "Blok A-03",
+    "Blok A-04",
+    "Blok A-05",
+    "Blok B-01",
+    "Blok B-02",
+    "Blok B-03",
+    "Blok B-04",
+    "Blok B-05",
+    "Blok C-01",
+    "Blok C-02",
+    "Blok C-03",
+    "Blok C-04",
+    "Blok C-05",
+    "Blok D-01",
+    "Blok D-02",
+    "Blok D-03",
+    "Blok D-04",
+    "Blok D-05",
   ]
 
   return (
@@ -63,7 +63,7 @@ export function EstimateFilters() {
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
         <Input
-          placeholder="Search by block name, production value, or notes..."
+          placeholder="Cari berdasarkan nama blok, nilai produksi, atau catatan..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="pl-10 border-emerald-200 focus:border-emerald-400"
@@ -73,10 +73,10 @@ export function EstimateFilters() {
       {/* Filter Controls */}
       <div className="flex flex-wrap gap-4 items-end">
         <div className="flex-1 min-w-[200px]">
-          <label className="text-sm font-medium text-gray-700 mb-2 block">Year</label>
+          <label className="text-sm font-medium text-gray-700 mb-2 block">Tahun</label>
           <Select value={selectedYear} onValueChange={setSelectedYear}>
             <SelectTrigger className="border-emerald-200 focus:border-emerald-400">
-              <SelectValue placeholder="Select year" />
+              <SelectValue placeholder="Pilih tahun" />
             </SelectTrigger>
             <SelectContent>
               {years.map((year) => (
@@ -89,10 +89,10 @@ export function EstimateFilters() {
         </div>
 
         <div className="flex-1 min-w-[200px]">
-          <label className="text-sm font-medium text-gray-700 mb-2 block">Month</label>
+          <label className="text-sm font-medium text-gray-700 mb-2 block">Bulan</label>
           <Select value={selectedMonth} onValueChange={setSelectedMonth}>
             <SelectTrigger className="border-emerald-200 focus:border-emerald-400">
-              <SelectValue placeholder="Select month" />
+              <SelectValue placeholder="Pilih bulan" />
             </SelectTrigger>
             <SelectContent>
               {months.map((month) => (
@@ -105,10 +105,10 @@ export function EstimateFilters() {
         </div>
 
         <div className="flex-1 min-w-[200px]">
-          <label className="text-sm font-medium text-gray-700 mb-2 block">Block</label>
+          <label className="text-sm font-medium text-gray-700 mb-2 block">Blok</label>
           <Select value={selectedBlock} onValueChange={setSelectedBlock}>
             <SelectTrigger className="border-emerald-200 focus:border-emerald-400">
-              <SelectValue placeholder="Select block" />
+              <SelectValue placeholder="Pilih blok" />
             </SelectTrigger>
             <SelectContent>
               {blocks.map((block) => (
@@ -131,7 +131,7 @@ export function EstimateFilters() {
           </Button>
           <Button className="bg-emerald-600 hover:bg-emerald-700">
             <Filter className="h-4 w-4 mr-2" />
-            Apply Filters
+            Terapkan Filter
           </Button>
         </div>
       </div>

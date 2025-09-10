@@ -22,7 +22,7 @@ export default function EstimatePage() {
             </div>
             <Badge className="self-center md:self-start bg-emerald-100 text-emerald-800 border-emerald-200 px-4 py-2">
               <Target className="w-4 h-4 mr-2" />
-              Data Real-time
+              Data Waktu Nyata
             </Badge>
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function EstimatePage() {
                 <Badge variant="outline" className="text-xs">
                   Terakhir diperbarui: 2 jam lalu
                 </Badge>
-                <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 text-xs">Ditingkatkan AI</Badge>
+                <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 text-xs">Didukung AI</Badge>
               </div>
             </div>
           </CardHeader>

@@ -328,3 +328,99 @@
     box-shadow: none !important;
   }
 }
+
+/* Chart tooltip specific styles */
+.recharts-tooltip-wrapper {
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+}
+
+.recharts-tooltip-content {
+  z-index: 9999 !important;
+  background: #1f2937 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
+  padding: 12px !important;
+  font-size: 14px !important;
+  max-width: 200px !important;
+  position: relative !important;
+  color: white !important;
+}
+
+.recharts-active-dot {
+  z-index: 99 !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  opacity: 0.3;
+}
+
+/* Ensure chart container doesn't clip tooltips and stays stable */
+.chart-container {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.recharts-wrapper {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.recharts-surface {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* Prevent chart movement on hover */
+.recharts-cartesian-grid,
+.recharts-xAxis,
+.recharts-yAxis {
+  position: static !important;
+}
+
+/* Enhanced hover effects for chart elements */
+.recharts-line-dot:hover {
+  transform: scale(1.2) !important;
+  transition: transform 0.2s ease !important;
+}
+
+.recharts-active-dot {
+  animation: pulse-chart 1.5s ease-in-out infinite !important;
+}
+
+@keyframes pulse-chart {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Dark mode tooltip support */
+.dark .recharts-tooltip-content {
+  background: #1f2937 !important;
+  border: 1px solid #374151 !important;
+  color: #f9fafb !important;
+}
+
+/* Stable chart positioning */
+.recharts-responsive-container {
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Fix tooltip positioning */
+.recharts-default-tooltip {
+  background: #1f2937 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 8px !important;
+  color: white !important;
+}

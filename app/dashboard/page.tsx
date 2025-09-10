@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { AlertTriangle, ChevronUp, ChevronDown, Calendar, MapPin, TrendingUp } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useState } from "react"
+import { ProductionChart } from "@/components/dashboard/production-chart"
 
 export default function DashboardPage() {
   const [isNdviExpanded, setIsNdviExpanded] = useState(true)
@@ -131,31 +132,40 @@ export default function DashboardPage() {
                 {/* Overlay for better contrast */}
                 <div className="absolute inset-0 bg-emerald-500/20 transition-all duration-300 group-hover:bg-emerald-500/30"></div>
 
+                {/* Marker 1 with tooltip */}
                 <div
                   className="absolute top-6 left-8 w-5 h-5 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-xs font-bold transition-all duration-200 hover:scale-125 hover:shadow-lg cursor-pointer group/marker"
-                  title="Blok A-12: 485 ton"
+                  title="Blok B-15: 485 ton"
                 >
                   1
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                    Blok A-12: 485 ton
+                  {/* Tooltip dark sesuai screenshot */}
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 min-w-[140px]">
+                    <div className="font-semibold">Blok B-15</div>
+                    <div className="text-emerald-400">445 ton • 112% efisiensi</div>
                   </div>
                 </div>
+                
+                {/* Marker 2 */}
                 <div
                   className="absolute top-4 right-8 w-5 h-5 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-xs font-bold transition-all duration-200 hover:scale-125 hover:shadow-lg cursor-pointer group/marker"
-                  title="Blok B-8: 467 ton"
+                  title="Blok A-8: 467 ton"
                 >
                   2
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                    Blok B-8: 467 ton
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 min-w-[140px]">
+                    <div className="font-semibold">Blok A-8</div>
+                    <div className="text-emerald-400">467 ton • 108% efisiensi</div>
                   </div>
                 </div>
+                
+                {/* Marker 3 */}
                 <div
                   className="absolute bottom-8 left-1/3 w-5 h-5 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center text-xs font-bold transition-all duration-200 hover:scale-125 hover:shadow-lg cursor-pointer group/marker"
                   title="Blok C-15: 445 ton"
                 >
                   3
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                    Blok C-15: 445 ton
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 min-w-[140px]">
+                    <div className="font-semibold">Blok C-15</div>
+                    <div className="text-emerald-400">445 ton • 105% efisiensi</div>
                   </div>
                 </div>
               </div>
@@ -313,22 +323,31 @@ export default function DashboardPage() {
                 {/* Overlay for better contrast */}
                 <div className="absolute inset-0 bg-red-500/20 transition-all duration-300 group-hover:bg-red-500/30"></div>
 
+                {/* Alert markers sesuai screenshot */}
                 <div className="absolute top-8 left-8 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center border border-white transition-all duration-200 hover:scale-125 hover:shadow-lg cursor-pointer group/marker">
                   <AlertTriangle className="h-3 w-3 text-white" />
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
-                    Blok F-11: 185 ton
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 min-w-[140px]">
+                    <div className="font-semibold">Blok E-07</div>
+                    <div className="text-red-400">225 ton • 78% dari target</div>
+                    <div className="text-red-300 text-xs">Perlu Perhatian Segera</div>
                   </div>
                 </div>
+                
                 <div className="absolute top-10 right-8 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center border border-white transition-all duration-200 hover:scale-125 hover:shadow-lg cursor-pointer group/marker">
                   <AlertTriangle className="h-3 w-3 text-white" />
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
-                    Blok G-7: 198 ton
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 min-w-[140px]">
+                    <div className="font-semibold">Blok F-12</div>
+                    <div className="text-red-400">198 ton • 72% dari target</div>
+                    <div className="text-red-300 text-xs">Perlu Perhatian Segera</div>
                   </div>
                 </div>
+                
                 <div className="absolute bottom-6 left-1/3 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center border border-white transition-all duration-200 hover:scale-125 hover:shadow-lg cursor-pointer group/marker">
                   <AlertTriangle className="h-3 w-3 text-white" />
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
-                    Blok H-3: 232 ton
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover/marker:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10 min-w-[140px]">
+                    <div className="font-semibold">Blok G-05</div>
+                    <div className="text-red-400">232 ton • 75% dari target</div>
+                    <div className="text-red-300 text-xs">Perlu Perhatian Segera</div>
                   </div>
                 </div>
               </div>
@@ -357,280 +376,8 @@ export default function DashboardPage() {
           </Card>
 
           <Card className="bg-gray-900 dark:bg-gray-800 text-white border-gray-700 dark:border-gray-600 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-gray-600 dark:hover:border-gray-500 group">
-            <CardHeader className="pb-1 pt-3 px-3">
-              <div className="flex items-center gap-1">
-                <TrendingUp className="h-3 w-3 text-emerald-400 transition-transform duration-200 group-hover:scale-110" />
-                <CardTitle className="text-emerald-400 text-xs">Tren Produksi 2024</CardTitle>
-              </div>
-              <CardDescription className="text-gray-400 dark:text-gray-300 text-xs transition-colors duration-300">
-                Produksi kelapa sawit bulanan vs target (dalam ton)
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="pt-0 px-3 pb-3">
-              <div className="relative h-32">
-                {/* Chart background grid */}
-                <div className="absolute inset-0">
-                  {/* Horizontal grid lines */}
-                  <div className="absolute inset-0 flex flex-col justify-between pt-2 pb-6">
-                    <div className="h-px bg-gray-600 opacity-30 transition-opacity duration-300 group-hover:opacity-50"></div>
-                    <div className="h-px bg-gray-600 opacity-30 transition-opacity duration-300 group-hover:opacity-50"></div>
-                    <div className="h-px bg-gray-600 opacity-30 transition-opacity duration-300 group-hover:opacity-50"></div>
-                    <div className="h-px bg-gray-600 opacity-30 transition-opacity duration-300 group-hover:opacity-50"></div>
-                    <div className="h-px bg-gray-600 opacity-30 transition-opacity duration-300 group-hover:opacity-50"></div>
-                  </div>
-                </div>
-
-                {/* Y-axis labels */}
-                <div className="absolute left-0 top-2 bottom-6 flex flex-col justify-between text-xs text-gray-400 dark:text-gray-300 -ml-2 transition-colors duration-300">
-                  <span>3200</span>
-                  <span>2400</span>
-                  <span>1600</span>
-                  <span>800</span>
-                  <span>0</span>
-                </div>
-
-                {/* Chart area with proper margins */}
-                <div className="absolute left-8 right-2 top-2 bottom-6">
-                  {/* Chart lines simulation */}
-                  <svg className="w-full h-full" viewBox="0 0 350 96" preserveAspectRatio="none">
-                    {/* Target line (orange/yellow) - gradual increase */}
-                    <polyline
-                      fill="none"
-                      stroke="#f59e0b"
-                      strokeWidth="2"
-                      strokeDasharray="4,4"
-                      points="0,64 30,62 60,60 90,58 120,56 150,54 180,52 210,50 240,48 270,46 300,44 330,42"
-                      vectorEffect="non-scaling-stroke"
-                      className="transition-all duration-300 hover:stroke-width-3 group-hover:stroke-yellow-400"
-                    />
-                    {/* Actual production line (green) - steeper growth curve */}
-                    <polyline
-                      fill="none"
-                      stroke="#10b981"
-                      strokeWidth="2.5"
-                      points="0,72 30,68 60,60 90,52 120,40 150,32 180,26 210,20 240,16 270,12 300,10 330,8"
-                      vectorEffect="non-scaling-stroke"
-                      className="transition-all duration-300 hover:stroke-width-4 group-hover:stroke-emerald-400"
-                    />
-
-                    <g className="data-points">
-                      <circle
-                        cx="0"
-                        cy="72"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Jan: 800 ton</title>
-                      </circle>
-                      <circle
-                        cx="30"
-                        cy="68"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Feb: 950 ton</title>
-                      </circle>
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Mar: 1200 ton</title>
-                      </circle>
-                      <circle
-                        cx="90"
-                        cy="52"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Apr: 1450 ton</title>
-                      </circle>
-                      <circle
-                        cx="120"
-                        cy="40"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Mei: 1800 ton</title>
-                      </circle>
-                      <circle
-                        cx="150"
-                        cy="32"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Jun: 2100 ton</title>
-                      </circle>
-                      <circle
-                        cx="180"
-                        cy="26"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Jul: 2350 ton</title>
-                      </circle>
-                      <circle
-                        cx="210"
-                        cy="20"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Agu: 2600 ton</title>
-                      </circle>
-                      <circle
-                        cx="240"
-                        cy="16"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Sep: 2800 ton</title>
-                      </circle>
-                      <circle
-                        cx="270"
-                        cy="12"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Okt: 2950 ton</title>
-                      </circle>
-                      <circle
-                        cx="300"
-                        cy="10"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Nov: 3050 ton</title>
-                      </circle>
-                      <circle
-                        cx="330"
-                        cy="8"
-                        r="2"
-                        fill="#10b981"
-                        className="transition-all duration-200 hover:r-4 hover:fill-emerald-400 cursor-pointer"
-                      >
-                        <title>Des: 3150 ton</title>
-                      </circle>
-                    </g>
-
-                    {/* Data points for target line with hover effects */}
-                    <g className="target-points">
-                      <circle
-                        cx="0"
-                        cy="64"
-                        r="1.5"
-                        fill="#f59e0b"
-                        opacity="0.7"
-                        className="transition-all duration-200 hover:r-3 hover:opacity-100 cursor-pointer"
-                      >
-                        <title>Target Jan: 1000 ton</title>
-                      </circle>
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="1.5"
-                        fill="#f59e0b"
-                        opacity="0.7"
-                        className="transition-all duration-200 hover:r-3 hover:opacity-100 cursor-pointer"
-                      >
-                        <title>Target Mar: 1200 ton</title>
-                      </circle>
-                      <circle
-                        cx="120"
-                        cy="56"
-                        r="1.5"
-                        fill="#f59e0b"
-                        opacity="0.7"
-                        className="transition-all duration-200 hover:r-3 hover:opacity-100 cursor-pointer"
-                      >
-                        <title>Target Mei: 1400 ton</title>
-                      </circle>
-                      <circle
-                        cx="180"
-                        cy="52"
-                        r="1.5"
-                        fill="#f59e0b"
-                        opacity="0.7"
-                        className="transition-all duration-200 hover:r-3 hover:opacity-100 cursor-pointer"
-                      >
-                        <title>Target Jul: 1600 ton</title>
-                      </circle>
-                      <circle
-                        cx="240"
-                        cy="48"
-                        r="1.5"
-                        fill="#f59e0b"
-                        opacity="0.7"
-                        className="transition-all duration-200 hover:r-3 hover:opacity-100 cursor-pointer"
-                      >
-                        <title>Target Sep: 1800 ton</title>
-                      </circle>
-                      <circle
-                        cx="300"
-                        cy="44"
-                        r="1.5"
-                        fill="#f59e0b"
-                        opacity="0.7"
-                        className="transition-all duration-200 hover:r-3 hover:opacity-100 cursor-pointer"
-                      >
-                        <title>Target Nov: 2000 ton</title>
-                      </circle>
-                      <circle
-                        cx="330"
-                        cy="42"
-                        r="1.5"
-                        fill="#f59e0b"
-                        opacity="0.7"
-                        className="transition-all duration-200 hover:r-3 hover:opacity-100 cursor-pointer"
-                      >
-                        <title>Target Des: 2100 ton</title>
-                      </circle>
-                    </g>
-                  </svg>
-                </div>
-
-                {/* Month labels with proper spacing */}
-                <div className="absolute bottom-0 left-8 right-2 flex justify-between text-xs text-gray-400 dark:text-gray-300 transition-colors duration-300">
-                  <span>Jan</span>
-                  <span>Feb</span>
-                  <span>Mar</span>
-                  <span>Apr</span>
-                  <span>Mei</span>
-                  <span>Jun</span>
-                  <span>Jul</span>
-                  <span>Agu</span>
-                  <span>Sep</span>
-                  <span>Okt</span>
-                  <span>Nov</span>
-                  <span>Des</span>
-                </div>
-              </div>
-
-              <div className="flex justify-center gap-3 mt-2 text-xs">
-                <div className="flex items-center gap-1 group cursor-pointer">
-                  <div className="w-2 h-0.5 bg-emerald-500 transition-all duration-200 group-hover:bg-emerald-400 group-hover:h-1"></div>
-                  <span className="text-emerald-400 transition-colors duration-200 group-hover:text-emerald-300">
-                    Produksi Aktual
-                  </span>
-                </div>
-                <div className="flex items-center gap-1 group cursor-pointer">
-                  <div className="w-2 h-0.5 bg-yellow-500 border-dashed border border-yellow-500 transition-all duration-200 group-hover:bg-yellow-400 group-hover:border-yellow-400 group-hover:h-1"></div>
-                  <span className="text-yellow-400 transition-colors duration-200 group-hover:text-yellow-300">
-                    Target
-                  </span>
-                </div>
-              </div>
+            <CardContent className="p-0">
+              <ProductionChart />
             </CardContent>
           </Card>
         </div>

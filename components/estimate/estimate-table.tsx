@@ -10,9 +10,9 @@ import { ChevronLeft, ChevronRight, Eye, Download } from "lucide-react"
 const estimateData = [
   {
     id: 1,
-    block: "Block A-01",
+    block: "Blok A-01",
     year: 2024,
-    month: "December",
+    month: "Desember",
     estimatedProduction: 485,
     actualProduction: 467,
     accuracy: 96.3,
@@ -22,9 +22,9 @@ const estimateData = [
   },
   {
     id: 2,
-    block: "Block A-02",
+    block: "Blok A-02",
     year: 2024,
-    month: "December",
+    month: "Desember",
     estimatedProduction: 420,
     actualProduction: null,
     accuracy: null,
@@ -34,7 +34,7 @@ const estimateData = [
   },
   {
     id: 3,
-    block: "Block B-01",
+    block: "Blok B-01",
     year: 2024,
     month: "November",
     estimatedProduction: 395,
@@ -46,9 +46,9 @@ const estimateData = [
   },
   {
     id: 4,
-    block: "Block B-02",
+    block: "Blok B-02",
     year: 2024,
-    month: "December",
+    month: "Desember",
     estimatedProduction: 445,
     actualProduction: null,
     accuracy: null,
@@ -58,7 +58,7 @@ const estimateData = [
   },
   {
     id: 5,
-    block: "Block C-01",
+    block: "Blok C-01",
     year: 2024,
     month: "November",
     estimatedProduction: 380,
@@ -70,9 +70,9 @@ const estimateData = [
   },
   {
     id: 6,
-    block: "Block C-02",
+    block: "Blok C-02",
     year: 2024,
-    month: "December",
+    month: "Desember",
     estimatedProduction: 410,
     actualProduction: null,
     accuracy: null,
@@ -82,7 +82,7 @@ const estimateData = [
   },
   {
     id: 7,
-    block: "Block D-01",
+    block: "Blok D-01",
     year: 2024,
     month: "November",
     estimatedProduction: 285,
@@ -94,9 +94,9 @@ const estimateData = [
   },
   {
     id: 8,
-    block: "Block D-02",
+    block: "Blok D-02",
     year: 2024,
-    month: "December",
+    month: "Desember",
     estimatedProduction: 295,
     actualProduction: null,
     accuracy: null,
@@ -109,11 +109,11 @@ const estimateData = [
 const getStatusBadge = (status: string) => {
   switch (status) {
     case "completed":
-      return <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200">Completed</Badge>
+      return <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200">Selesai</Badge>
     case "pending":
-      return <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">Pending</Badge>
+      return <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">Menunggu</Badge>
     default:
-      return <Badge className="bg-gray-100 text-gray-800 border-gray-200">Unknown</Badge>
+      return <Badge className="bg-gray-100 text-gray-800 border-gray-200">Tidak Diketahui</Badge>
   }
 }
 
@@ -122,23 +122,23 @@ const getConfidenceBadge = (confidence: string) => {
     case "high":
       return (
         <Badge variant="outline" className="border-emerald-300 text-emerald-700">
-          High
+          Tinggi
         </Badge>
       )
     case "medium":
       return (
         <Badge variant="outline" className="border-yellow-300 text-yellow-700">
-          Medium
+          Sedang
         </Badge>
       )
     case "low":
       return (
         <Badge variant="outline" className="border-red-300 text-red-700">
-          Low
+          Rendah
         </Badge>
       )
     default:
-      return <Badge variant="outline">Unknown</Badge>
+      return <Badge variant="outline">Tidak Diketahui</Badge>
   }
 }
 
@@ -158,15 +158,15 @@ export function EstimateTable() {
         <Table>
           <TableHeader>
             <TableRow className="bg-emerald-50">
-              <TableHead className="font-semibold text-emerald-800">Block</TableHead>
-              <TableHead className="font-semibold text-emerald-800">Year</TableHead>
-              <TableHead className="font-semibold text-emerald-800">Month</TableHead>
-              <TableHead className="font-semibold text-emerald-800">Estimated (tons)</TableHead>
-              <TableHead className="font-semibold text-emerald-800">Actual (tons)</TableHead>
-              <TableHead className="font-semibold text-emerald-800">Accuracy (%)</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Blok</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Tahun</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Bulan</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Estimasi (ton)</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Aktual (ton)</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Akurasi (%)</TableHead>
               <TableHead className="font-semibold text-emerald-800">Status</TableHead>
-              <TableHead className="font-semibold text-emerald-800">Confidence</TableHead>
-              <TableHead className="font-semibold text-emerald-800">Actions</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Kepercayaan</TableHead>
+              <TableHead className="font-semibold text-emerald-800">Aksi</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -177,7 +177,7 @@ export function EstimateTable() {
                 <TableCell>{row.month}</TableCell>
                 <TableCell>{row.estimatedProduction}</TableCell>
                 <TableCell>
-                  {row.actualProduction ? row.actualProduction : <span className="text-gray-400 italic">Pending</span>}
+                  {row.actualProduction ? row.actualProduction : <span className="text-gray-400 italic">Menunggu</span>}
                 </TableCell>
                 <TableCell>
                   {row.accuracy ? (
@@ -219,7 +219,7 @@ export function EstimateTable() {
       {/* Pagination */}
       <div className="flex items-center justify-between">
         <div className="text-sm text-gray-600">
-          Showing {startIndex + 1} to {Math.min(endIndex, estimateData.length)} of {estimateData.length} entries
+          Menampilkan {startIndex + 1} sampai {Math.min(endIndex, estimateData.length)} dari {estimateData.length} entri
         </div>
         <div className="flex items-center gap-2">
           <Button
@@ -230,7 +230,7 @@ export function EstimateTable() {
             className="border-emerald-200 text-emerald-700 hover:bg-emerald-50"
           >
             <ChevronLeft className="h-4 w-4" />
-            Previous
+            Sebelumnya
           </Button>
 
           <div className="flex items-center gap-1">
@@ -258,7 +258,7 @@ export function EstimateTable() {
             disabled={currentPage === totalPages}
             className="border-emerald-200 text-emerald-700 hover:bg-emerald-50"
           >
-            Next
+            Berikutnya
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
